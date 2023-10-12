@@ -1,7 +1,6 @@
 <template>
     <div class="sidebar" :style="{width: sidebarWidth}">       
-        <SidebarLink to="/" icon="home">Home</SidebarLink>
-        <SidebarLink to="/about" icon="info">About</SidebarLink>
+        <SidebarLink to="/" icon="home">Dashboard</SidebarLink>
         <span class="collapse-icon" :class="{'rotate-180': collapsed}" @click="toggleSidebar">
             <fa icon="angles-left" />
     </span>
