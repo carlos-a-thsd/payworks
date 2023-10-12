@@ -1,7 +1,7 @@
 <template>
     <div class="card">
         <div v-if="icon" class="icon-box">
-            <img :src="`../assets/${this.icon}`" alt="Icon">
+            <img :src="imageSrc" alt="Icon">
         </div>
 
         <div class="titulo">
@@ -16,6 +16,11 @@ export default {
         "title",
         "icon"
     ],
+    computed:{
+        imageSrc(){
+            return new URL(`../assets/${this.icon}`, import.meta.url).href;
+        }
+    }
 };
 </script>
 
