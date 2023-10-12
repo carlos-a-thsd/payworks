@@ -14,15 +14,18 @@
         </div>
         <div style="padding: 1rem;">
             <div class="logo-link">
-                <img src="../../../public/Outline.png" alt="logo" class="logo"
-                    style="width: 25px; height: 25px; margin-right: 0.5em;" />
+                <img src="../../../public/Outline.png" alt="logo"
+                    v-bind:class="{ 'margin-right': !collapsed, 'margin-left': collapsed }" class="logo"
+                    style="width: 25px; height: 25px;" />
                 <SidebarLink to="/" style="width: 100%;">
                     Dashboard
                 </SidebarLink>
             </div>
             <div class="logo-link">
-                <img src="../../../public/logout.png" alt="logo" class="logo"
-                    style="width: 25px; height: 25px; margin-right: 0.5em;" />
+                <img src="../../../public/logout.png" alt="logo"
+                    v-bind:class="{ 'margin-right': !collapsed, 'margin-left': collapsed }" class="logo"
+                    style="width: 25px; height: 25px;" />
+
                 <SidebarLink to="#" style="width: 100%;">
                     Salir
                 </SidebarLink>
@@ -101,6 +104,14 @@ export default {
     border-right: 2px solid #ccc;
     text-align: center;
 
+}
+
+.margin-left {
+    margin-left: 1em;
+}
+
+.margin-right {
+    margin-right: 0.5em;
 }
 
 .logo-link {

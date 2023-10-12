@@ -62,6 +62,5 @@ export default {
 .link .icon {
     flex-shrink: 0;
     widows: 25px;
-    margin-right: 10px;
 }
 </style>
