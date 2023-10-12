@@ -2,11 +2,8 @@
   font-family: "Poppins", sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(26, 26, 26, 0.87);
-  background-color: #f1f1f1;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -57,9 +54,7 @@ button:focus-visible {
 
 #app {
   max-width: 1280px;
-  margin-left: 20rem;
   padding: 2rem;
-  text-align: center;
 }
 
 @media (prefers-color-scheme: light) {
