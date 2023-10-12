@@ -1,24 +1,21 @@
 <template>
     <div>
         <h1>Dashboard</h1>
-        <div class="row">
-            <div class="col-4">
+        <div class="container-cards">
+            <div>
                 <CardComponent title="Bancos">
                     Aquí va el componente
                 </CardComponent>
             </div>
-            <div class="col-4">
+            <div>
                 <CardComponent title="Bancos">
                     Aquí va el componente
                 </CardComponent>
             </div>
-            <div class="col-4">
+            <div>
                 <CardComponent title="Bancos">
                     Aquí va el componente
                 </CardComponent>
-            </div>
-            <div class="col-4">
-
             </div>
         </div>
 
@@ -28,4 +25,10 @@
 import CardComponent from '../components/CardComponent.vue';
 
 </script>
-<style></style>
+<style>
+.container-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+}
+</style>

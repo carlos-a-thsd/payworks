@@ -99,6 +99,7 @@ export default {
     gap: 1em;
     box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.075);
     border-right: 2px solid #ccc;
+    text-align: center;
 
 }
 
