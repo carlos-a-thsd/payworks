@@ -46,7 +46,7 @@ export default {
 .icon-box {
     position: absolute;
     top: -15px;
-    left: 3%;
+    left: 15%;
     padding-left: 0;
     transform: translateX(-50%);
     background-color: #00B491;

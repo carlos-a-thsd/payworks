@@ -8,8 +8,8 @@
                 </CardComponent>
             </div>
             <div class="col-4">
-                <CardComponent title="Bancos">
-                    <Testcircle id="otro" :widgetData="dummydata"></Testcircle>
+                <CardComponent title="Emisores" icon="banda.png">
+                    <EmisoresComponent id="otro" :widgetData="dummydata"></EmisoresComponent>
                 </CardComponent>
             </div>
             <div class="col-4">
@@ -24,9 +24,9 @@
 <script setup>
 import CardComponent from '../components/CardComponent.vue';
 import test from '../components/test.vue';
+import EmisoresComponent from '../components/EmisoresComponent.vue';
 import { onMounted, ref } from "vue"
 import { getData } from '../data/dummyData';
-import Testcircle from '../components/testcircle.vue';
 
 const dummydata = ref(getData())
 onMounted(() => {

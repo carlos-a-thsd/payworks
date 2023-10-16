@@ -16,12 +16,11 @@ export default {
     ],
     methods: {
         buildComponent() {
-            ChartLib.palettes.custom = colores;
-            ChartLib.bar(this.id, this.widgetData.cats.cats, {
+            ChartLib.palettes.custom = colores;            
+            ChartLib.bar(this.id, this.widgetData.cats, {
                 xvalues: "name",
                 yvalues: ["value"],
                 palette: "custom",
-                flip: true,
                 xfmt: "n",
                 yfmt: "s"
             });
