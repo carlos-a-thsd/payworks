@@ -9,7 +9,7 @@
             </div>
             <div class="col-4">
                 <CardComponent title="Bancos">
-                    Aquí va el componente
+                    <Testcircle id="otro" :widgetData="dummydata"></Testcircle>
                 </CardComponent>
             </div>
             <div class="col-4">
@@ -26,6 +26,7 @@ import CardComponent from '../components/CardComponent.vue';
 import test from '../components/test.vue';
 import { onMounted, ref } from "vue"
 import { getData } from '../data/dummyData';
+import Testcircle from '../components/testcircle.vue';
 
 const dummydata = ref(getData())
 onMounted(() => {
