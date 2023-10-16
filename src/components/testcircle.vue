@@ -14,8 +14,7 @@ export default {
     ],
     methods: {
         buildComponent() {
-            const cats = ["Monterrey", "Cd. de México", "Durango"].map(name => ({ name, value: Math.random() * 100000 }));
-            ChartLib.doughnut("otro", cats, {
+            ChartLib.pie(this.id, this.widgetData.cats.cats, {
                 xvalues: "name",
                 yvalues: ["value"],
                 yfmt: "n",

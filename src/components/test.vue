@@ -6,6 +6,8 @@
     </div>
 </template>
 <script>
+let colores = ["#004e97", "#46b3a9", "#fc586f", "#8b74d7", "#fdbc38", "#6e838e", "#2a9ec6", "#e10052", "#26e7a7"];
+
 import { ChartLib } from '../components/libs/ChartLib';
 export default {
     props: [
@@ -14,12 +16,11 @@ export default {
     ],
     methods: {
         buildComponent() {
-            const cats = ["Monterrey", "Cd. de México", "Durango"].map(name => ({ name, value: Math.random() * 100000 }));
-
-            ChartLib.bar("alertas", cats, {
+            ChartLib.palettes.custom = colores;
+            ChartLib.bar(this.id, this.widgetData.cats.cats, {
                 xvalues: "name",
                 yvalues: ["value"],
-                palette: "triage",
+                palette: "custom",
                 flip: true,
                 xfmt: "n",
                 yfmt: "s"
