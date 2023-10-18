@@ -6,9 +6,8 @@
             </div>
             <div class="col-6 ms-0">
                 <ul class="custom-list">
-                    <li v-for="(emisor, index) in widgetData.emisoresAjustados" :key="emisor.name">
-                        <span class="bullet" :style="{ backgroundColor: colores[index % colores.length] }"></span> {{
-                            emisor.name + " " + formatear("p100", emisor.value) }}
+                    <li v-for="(comercio, index) in widgetData.comerciosAjustados" :key="comercio.name">
+                        <span class="bullet" :style="{ backgroundColor: colores[index % colores.length] }"></span> {{ comercio.name +" "+formatear("p100",comercio.value) }}
                     </li>
                 </ul>
             </div>
@@ -16,8 +15,8 @@
         <hr>
         <div class="col-12 d-flex align-items-center justify-content-around">
             <div>
-                <span class="bullet"  style="background-color: green;"></span>
-                <h3 class=" d-inline">Autorizador A</h3>
+                <span class="bullet"  style="background-color: red;"></span>
+                <h3 class=" d-inline">Autorizador B</h3>
             </div>
         </div>
     </div>
@@ -37,8 +36,8 @@ export default {
     ],
     methods: {
         buildComponent() {
-            ChartLib.palettes.custom = this.colores;
-            ChartLib.pie(this.id, this.widgetData.emisoresAjustados, {
+            ChartLib.palettes.custom = this.colores;  
+            ChartLib.pie(this.id, this.widgetData.comerciosAjustados, {
                 xvalues: "name",
                 yvalues: ["value"],
                 yfmt: "n",
@@ -46,7 +45,7 @@ export default {
                 palette: "custom"
             });
         },
-        formatear(formato, valor) {
+        formatear(formato, valor){
             return fmt(formato)(valor)
         }
     },
@@ -73,10 +72,11 @@ export default {
 
 .bullet {
     display: inline-block;
-    width: 15px;
-    height: 15px;
-    background-color: #004e97;
-    border-radius: 10px;
-    margin-right: 5px;
+    width: 15px; /* Ancho del bullet */
+    height: 15px; /* Alto del bullet */
+    background-color: #004e97; /* Color de fondo del bullet */
+    border-radius: 10px; /* Bordes rectos para hacerlo rectangular */
+    margin-right: 5px; /* Espacio entre los bullets y el texto */
 }
+
 </style>

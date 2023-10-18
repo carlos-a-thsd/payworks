@@ -1,14 +1,11 @@
 <template>
     <div>
-        <div>
-            <canvas :id="`${this.id}`" style="width:100%;height:100%;"></canvas>
-        </div>
+        <div id="graficaprogress" style="width:100%;height:100%;"></div>
     </div>
 </template>
 <script>
-let colores = ["#004e97", "#46b3a9", "#fc586f", "#8b74d7", "#fdbc38", "#6e838e", "#2a9ec6", "#e10052", "#26e7a7"];
-
-import { ChartLib } from '../components/libs/ChartLib';
+// import { ChartLib } from '../components/libs/ChartLib';
+import { progress } from './libs/progressChart';
 export default {
     props: [
         "id",
@@ -16,31 +13,40 @@ export default {
     ],
     methods: {
         buildComponent() {
-            ChartLib.palettes.custom = colores;            
-            ChartLib.bar(this.id, this.widgetData.cats, {
-                xvalues: "name",
-                yvalues: ["value"],
-                palette: "custom",
-                xfmt: "n",
-                yfmt: "s"
-            });
+            var options2 = [
+                {
+                    w: "100",
+                    h: "100",
+                    innerRadius: "40",
+                    fontsize1: "16px",
+                    fontsize2: "10px",
+                    text: "Rendimiento",
+                    dy: "13",
+                },
+            ];
+            progress(
+                (Math.random() * (0.8 - 1) + 1) * 100,
+                "#graficaprogress",
+                ["#F3F3F4", "#6EFFDA", "#02839B", "#FFFFFF"],
+                options2
+            );
+
         }
     },
-    watch: {
-        widgetData: {
-            handler() {
-                this.buildComponent();
-            },
-            deep: true,
-        }
-    },
+    // watch: {
+    //     widgetData: {
+    //         handler() {
+    //             this.buildComponent();
+    //         },
+    //         deep: true,
+    //     } 
+    // },
     mounted() {
         this.$nextTick(() => {
             this.buildComponent();
-        })
+        });
     }
 }
 </script>
 <style>
-    
 </style>
