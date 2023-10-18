@@ -16,7 +16,7 @@ export default {
     ],
     methods: {
         buildComponent() {
-            ChartLib.palettes.custom = colores;            
+            ChartLib.palettes.custom = colores;
             ChartLib.bar(this.id, this.widgetData.cats, {
                 xvalues: "name",
                 yvalues: ["value"],
@@ -41,6 +41,4 @@ export default {
     }
 }
 </script>
-<style>
-    
-</style>
+<style></style>

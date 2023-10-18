@@ -7,13 +7,15 @@
             <div class="col-6 ms-0">
                 <ul class="custom-list">
                     <li v-for="(emisor, index) in widgetData.emisoresAjustados" :key="emisor.name">
-                        <span class="bullet" :style="{ backgroundColor: colores[index % colores.length] }"></span> {{ emisor.name +" "+emisor.value }}
+                        <span class="bullet" :style="{ backgroundColor: colores[index % colores.length] }"></span> {{
+                            emisor.name + " " + emisor.value }}
                     </li>
                 </ul>
             </div>
         </div>
     </div>
 </template>
+
 <script>
 import { ChartLib } from '../components/libs/ChartLib';
 export default {
@@ -28,7 +30,7 @@ export default {
     ],
     methods: {
         buildComponent() {
-            ChartLib.palettes.custom = this.colores;  
+            ChartLib.palettes.custom = this.colores;
             ChartLib.pie(this.id, this.widgetData.emisoresAjustados, {
                 xvalues: "name",
                 yvalues: ["value"],
@@ -53,6 +55,7 @@ export default {
     }
 }
 </script>
+
 <style scoped>
 .custom-list {
     list-style-type: none;
@@ -61,11 +64,15 @@ export default {
 
 .bullet {
     display: inline-block;
-    width: 15px; /* Ancho del bullet */
-    height: 12px; /* Alto del bullet */
-    background-color: #004e97; /* Color de fondo del bullet */
-    border-radius: 4px; /* Bordes rectos para hacerlo rectangular */
-    margin-right: 5px; /* Espacio entre los bullets y el texto */
+    width: 15px;
+    /* Ancho del bullet */
+    height: 12px;
+    /* Alto del bullet */
+    background-color: #004e97;
+    /* Color de fondo del bullet */
+    border-radius: 4px;
+    /* Bordes rectos para hacerlo rectangular */
+    margin-right: 5px;
+    /* Espacio entre los bullets y el texto */
 }
-
 </style>

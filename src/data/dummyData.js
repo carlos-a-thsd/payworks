@@ -1,39 +1,95 @@
-import moment from 'moment';
-export function getData () {
+import moment from "moment";
+export function getData() {
+  const nombres = ["GFNORTE", "BYOD", "GFBA", "INVITADOS", "OTHERS"].map(
+    (o) => ({
+      name: o,
+      count: Math.floor(Math.random() * (100 - 20) + 20),
+    })
+  );
 
-    
-   
-    
-    const nombres = ["GFNORTE", "BYOD", "GFBA", "INVITADOS", "OTHERS"].map(
-        (o) => ({
-            name: o,
-            count: Math.floor(Math.random() * (100 - 20) + 20),
-        })
-    );
-    const cats = ["Monterrey", "Cd. de México", "Durango"].map(name => ({ name, value: Math.random() * 100000 }));
-    const emisores = ["Banorte", "BBVA", "HSBC", "Santander", "Citibanamex"];
+  //   Card Categorias
+  const cats = ["Monterrey", "Cd. de México", "Durango"].map((name) => ({
+    name,
+    value: Math.random() * 100000,
+  }));
 
-// Generar valores aleatorios para cada emisor
-const emisoresConValores = emisores.map(emisor => {
-    // Generar un valor aleatorio en el rango de 0 a 100
+  //   Card Emisores
+  const emisores = ["Banorte", "BBVA", "HSBC", "Santander", "Citibanamex"];
+  const emisoresConValores = emisores.map((emisor) => {
     const valor = Math.random() * 100;
 
     return { name: emisor, value: valor };
-});
+  });
 
-// Calcular el total de valores asignados a los emisores
-const totalActual = emisoresConValores.reduce((total, emisor) => total + emisor.value, 0);
+  const totalActual = emisoresConValores.reduce(
+    (total, emisor) => total + emisor.value,
+    0
+  );
 
-// Ajustar los valores para que el total sea igual a 100
-const factorDeEscalado = 100 / totalActual;
-const emisoresAjustados = emisoresConValores.map(emisor => ({
+  const factorDeEscalado = 100 / totalActual;
+  const emisoresAjustados = emisoresConValores.map((emisor) => ({
     name: emisor.name,
-    value: Math.floor(emisor.value * factorDeEscalado)
-}));
-    return {
-            nombres,
-            cats,
-            emisoresAjustados
-    }
+    value: Math.floor(emisor.value * factorDeEscalado),
+  }));
+
+  //   Top comercios
+  const comercios = ["Amazon", "Walmart", "Mercado Libre", "Bodega Aurrera"];
+
+  const topComerciosData = comercios.map((comercio) => {
+    const total = Math.floor(Math.random() * 100) * 10 + 300;
+    const meta = total * 1.05;
+    const pronostico = total * 1.1;
+    const desviacion = ((pronostico - total) / total) * 100;
+    const desviacionAjustada = desviacion + (Math.random() - 0.5) * 20;
+
+    // Sacar la disponibilidad y la no disponibilidad
+    const disponibilidad = Math.floor(Math.random() * 100);
+    const noDisponibilidad = 100 - disponibilidad;
+
+    return [
+      {
+        name: comercio,
+        disponibilidad,
+        noDisponibilidad,
+        total: total,
+        desviacion: desviacionAjustada,
+        meta: meta,
+        pronostico: pronostico,
+      },
+    ];
+  });
+  console.log(topComerciosData);
+
+  //   Top emisores
+  const topEmisores = ["BBVA", "Santander", "Banorte", "HSBC"];
+  const topEmisoresData = topEmisores.map((emisor, index) => {
+    const total = Math.floor(Math.random() * 100) * 10 + 300;
+    const disponibilidad = Math.random() * 25 + 75;
+    const meta = total * 1.05;
+    const pronostico = total * 1.1;
+    const desviacion = ((pronostico - total) / total) * 100;
+    const desviacionAjustada = desviacion + (Math.random() - 0.5) * 20;
+
+    return [
+      {
+        name: emisor,
+        disponibilidad,
+        total: total,
+        desviacion: desviacionAjustada,
+        meta: meta,
+        pronostico: pronostico,
+      },
+    ];
+  });
+
+  //   Transacciones
+
+  return {
+    nombres,
+    cats,
+    emisoresAjustados,
+    topComerciosData,
+    topEmisoresData,
+  };
 }
-export const data = getData()
+export const data = getData();
