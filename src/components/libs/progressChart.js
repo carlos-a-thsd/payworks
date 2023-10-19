@@ -1,9 +1,5 @@
-// import * as d3 from 'd3';
-import {fmt} from "../libs/fmt.js";
-import { Chart, registerables } from "chartJs3";
-Chart.register(...registerables)
-const _charts = {};
 export function progress(value, id, color, options) {
+    const  d3  = window.d3;
     var percent = value;
 
     const w = options[0].w,
@@ -171,82 +167,3 @@ export function progress(value, id, color, options) {
 }
 
 
-
-
-export function stackedHbar(id, data, format, palette, max) {
-    
-    var barOptions_stacked = {
-        responsive: false,
-        maintainAspectRatio: true,
-        indexAxis: "y",
-        tooltips: {
-            enabled: false,
-        },
-        hover: {
-            animationDuration: 0,
-        },
-        scales: {
-            x: {
-                stacked: false,
-                display: true,
-                max:max,
-                ticks: {
-                    // Include a dollar sign in the ticks
-                    callback: function (value, index, ticks) {
-                        const f = fmt(format);
-                        return f(value);
-                    },
-                },
-            },
-            y: {
-                stacked: true,
-                display: false,
-            },
-        },
-        plugins: {
-            legend: {
-                display: false,
-            },
-            tooltip: {
-                enabled: false,
-            },
-        },
-    };
-
-    if (_charts[id]) {
-        _charts[id].data.labels = data.map((o) => o.name);
-        _charts[id].data.datasets = [
-            {
-                data: data[0].count,
-                backgroundColor: palette[0],
-            },
-            {
-                data: data[1].count,
-                backgroundColor: palette[1],
-            },
-        ];
-        _charts[id].update();
-    } else {
-        var ctx1 = document.getElementById(id);
-        _charts[id] = new Chart(ctx1, {
-            type: "bar",
-            data: {
-                labels: data.map((o) => o.name),
-                datasets: [
-                    {
-                        data: data[0].count,
-                        backgroundColor: palette[0],
-                        stack: "Stack 0",
-                    },
-                    {
-                        data: data[1].count,
-                        backgroundColor: palette[1],
-                        stack: "Stack 0",
-                    },
-                ],
-            },
-
-            options: barOptions_stacked,
-        });
-    }
-}

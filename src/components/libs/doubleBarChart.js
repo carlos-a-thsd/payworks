@@ -62,7 +62,7 @@ export function makeChartBars (types, cant, vm, id){
 
 
 export function makeChartBarSingle (types, cant, id, color, position, maximo){
-    // console.log(cant);
+
     const data = {
         labels: types,
         datasets: [{
