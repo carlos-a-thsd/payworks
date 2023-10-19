@@ -82,7 +82,4 @@ export default {
 .p {
     font-size: 12px;
 }
-
-<template><div class="container-grid"></div></template><script setup>import CardComponent from './CardComponent.vue';
-
-const image=[] </script><style lan
+</style>

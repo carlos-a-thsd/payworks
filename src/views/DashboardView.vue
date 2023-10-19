@@ -127,7 +127,6 @@
 <script setup>
 import CardComponent from '../components/CardComponent.vue';
 import TopComerciosComponent from '../components/TopComerciosComponent.vue';
-import test from '../components/test.vue';
 import ComerciosComponent from '../components/ComerciosComponent.vue';
 import EmisoresComponent from '../components/EmisoresComponent.vue';
 import ResumenVolumenMonetario from '../components/ResumenVolumenMonetario.vue';
@@ -144,7 +143,6 @@ import ModeloMonetarioComponent from '../components/ModeloMonetarioComponent.vue
 import { onMounted, ref } from "vue"
 import { getData } from '../data/dummyData';
 import TopEmisoresComponent from '../components/TopEmisoresComponent.vue';
-import TransaccionesComponent from '../components/TransaccionesComponent.vue';
 
 const dummydata = ref(getData())
 onMounted(() => {
@@ -156,4 +154,5 @@ onMounted(() => {
 <style>
 .row {
     width: 100%;
-}</style>
+}
+</style>
