@@ -1,7 +1,26 @@
 <template>
     <div>
-        <h1>Dashboard</h1>
-        <div class="row">
+        <div class="text-end pe-4 pt-3">
+            <p style="text-decoration: underline;">Inicio>Dashboards</p>
+        </div>
+        <div class="row mb-4 align-items-center">
+            <div class="col">
+                <h1 class="mt-0 mb-4 d-inline">Dashboards - payworks</h1>
+            </div>
+            <div class="col-4">
+                <div class="input-group rounded">
+                    <input type="search" class="form-control rounded" placeholder="Buscar" aria-label="Search"
+                    aria-describedby="search-addon" />
+                    <span class="input-group-text border-0" id="search-addon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/></svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <BarPronostico id="bar" :widgetData="dummydata"></BarPronostico>
+
+
+        <div class="row mt-4">
             <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
                 <CardComponent title="Salud/Disponibilidad" icon="banda.png">
                     <DisponibilidadComponent id="disponibilidad" :widgetData="dummydata"></DisponibilidadComponent>
@@ -19,12 +38,13 @@
             </div>
             <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
                 <CardComponent title="Disponibilidad/Infraestructura" icon="banda.png">
-                    <DisponibilidadInfraestructuraComponent id="disponibilidadInfraestructura" :widgetData="dummydata"></DisponibilidadInfraestructuraComponent>
+                    <DisponibilidadInfraestructuraComponent id="disponibilidadInfraestructura" :widgetData="dummydata">
+                    </DisponibilidadInfraestructuraComponent>
                 </CardComponent>
             </div>
-        </div>        
-        
-        <div class="row mt-3">           
+        </div>
+
+        <div class="row mt-3">
             <div class="col-3">
                 <CardComponent title="Comercios Digitales" icon="banda.png">
                     <ComerciosComponent id="comerciosDigitalesAjustados" :widgetData="dummydata"></ComerciosComponent>
@@ -67,7 +87,7 @@
                     <NodosComponent id="nodos" :widgetData="dummydata"></NodosComponent>
                 </CardComponent>
             </div>
-        </div>     
+        </div>
 
 
         <div class="row mt-3">
@@ -102,7 +122,7 @@ import DisponibilidadInfraestructuraComponent from '../components/Disponibilidad
 import TransaccionesComponent from '../components/TransaccionesComponent.vue';
 import NodosComponent from '../components/NodosComponent.vue';
 import PuntosContactoComponent from '../components/PuntosContactoComponent.vue';
-
+import BarPronostico from '../components/BarPronostico.vue';
 
 import ModeloTransaccionalComponent from '../components/ModeloTransaccionalComponent.vue';
 import ModeloMonetarioComponent from '../components/ModeloMonetarioComponent.vue'

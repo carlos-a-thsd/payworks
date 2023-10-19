@@ -8,7 +8,7 @@ function distribuirValores(elementos) {
     }));
 }
 function aleatorioResumenMonetario(){
-    return Math.floor(Math.random() * (10000000 - 1000000 + 1)) + 1000000;
+    return Math.floor(Math.random() * (10000000000 - 1000000000 + 1)) + 1000000000;
 }
 function aleatorioResumenTransacional(){
     return Math.floor(Math.random() * (100000 - 10000 + 1)) + 10000;
@@ -104,7 +104,7 @@ export function getData() {
 
 
     const totalMonetario = aleatorioResumenMonetario();
-    const pronosticoMonetario = totalMonetario+10000;
+    const pronosticoMonetario = totalMonetario+9908000000;
     const promedioMonetario = totalMonetario + 43534;
     const metaMonetario = pronosticoMonetario+109148;
     
@@ -165,6 +165,10 @@ export function getData() {
                 ]
             },
         },
+        "resumenBar":{
+            "actividad": totalMonetario,
+            "pronostico": pronosticoMonetario
+        }
     }
 }
 export const data = getData()

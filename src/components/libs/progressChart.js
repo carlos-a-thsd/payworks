@@ -1,6 +1,5 @@
 export function progress(value, id, color, options) {
     const  d3  = window.d3;
-    console.log(d3);
     var percent = value;
 
     const w = options[0].w,

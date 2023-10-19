@@ -41,7 +41,6 @@ export default {
     methods: {
         buildComponent() {
             ChartLib.palettes.custom = this.colores;
-            console.log(this.id)
             ChartLib.doughnut(this.id, this.widgetData.transacciones[this.id].grafica, {
                 xvalues: "name",
                 yvalues: ["value"],

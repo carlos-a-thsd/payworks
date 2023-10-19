@@ -12,6 +12,7 @@
         </div>
         <div class="d-flex justify-content-between align-items-center pt-3">
             <h6 class="d-inline">Pronóstico</h6>
+            <!-- <canvas class="d-inline" id="mundo" style="width:50%;height:20%;"></canvas> -->
             <h5 class="d-inline ml-2 grey">{{ formatear("n", this.widgetData.resumenTransaccional.pronostico) }}</h5>
         </div>
         <div class="d-flex justify-content-between align-items-center mt-0">
