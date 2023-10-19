@@ -1,23 +1,16 @@
 <template>
     <div>
         <div class="row">
-            <div class="col-6">
+            <div class="col">
                 <canvas :id="`${this.id}`" style="width:100%;height:100%;"></canvas>
             </div>
-            <div class="col-6 ms-0">
+            <div class="col ms-0">
                 <ul class="custom-list">
                     <li v-for="(emisor, index) in widgetData.emisoresAjustados" :key="emisor.name">
                         <span class="bullet" :style="{ backgroundColor: colores[index % colores.length] }"></span> {{
                             emisor.name + " " + formatear("p100", emisor.value) }}
                     </li>
                 </ul>
-            </div>
-        </div>
-        <hr>
-        <div class="col-12 d-flex align-items-center justify-content-around">
-            <div>
-                <span class="bullet"  style="background-color: green;"></span>
-                <h3 class=" d-inline">Autorizador A</h3>
             </div>
         </div>
     </div>
@@ -69,6 +62,7 @@ export default {
 .custom-list {
     list-style-type: none;
     padding-left: 0;
+    font-size: 12px;
 }
 
 .bullet {

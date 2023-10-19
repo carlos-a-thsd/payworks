@@ -1,12 +1,12 @@
 <template>
     <div>
         <div class="row">
-            <div class="col-6">
+            <div class="col">
                 <canvas :id="`${this.id}`" style="width:100%;height:100%;"></canvas>
             </div>
-            <div class="col-6 ms-0">
+            <div class="col ms-0">
                 <ul class="custom-list">
-                    <li v-for="(comercio, index) in widgetData.comerciosAjustados" :key="comercio.name">
+                    <li v-for="(comercio, index) in widgetData[this.id]" :key="comercio.name">
                         <span class="bullet" :style="{ backgroundColor: colores[index % colores.length] }"></span> {{ comercio.name +" "+formatear("p100",comercio.value) }}
                     </li>
                 </ul>
@@ -15,7 +15,7 @@
         <hr>
         <div class="col-12 d-flex align-items-center justify-content-around">
             <div>
-                <span class="bullet"  style="background-color: red;"></span>
+                <span class="bullet"  style="background-color: green;"></span>
                 <h3 class=" d-inline">Autorizador B</h3>
             </div>
         </div>
@@ -37,7 +37,7 @@ export default {
     methods: {
         buildComponent() {
             ChartLib.palettes.custom = this.colores;  
-            ChartLib.pie(this.id, this.widgetData.comerciosAjustados, {
+            ChartLib.pie(this.id, this.widgetData[this.id], {
                 xvalues: "name",
                 yvalues: ["value"],
                 yfmt: "n",
@@ -68,6 +68,7 @@ export default {
 .custom-list {
     list-style-type: none;
     padding-left: 0;
+    font-size: 12px;
 }
 
 .bullet {

@@ -1,10 +1,10 @@
 <template>
     <div>
         <div class="row">
-            <div class="col-6">
-                <div id="graficaprogress" style="width:100%;height:100%;"></div>
+            <div class="col-4 me-0">
+                <div :id="`${this.id}`" style="width:100%;height:100%;"></div>
             </div>
-            <div class="col-6 ms-0">
+            <div class="col-8 ms-0">
                 <ul class="custom-list">
                     <li v-for="elemento in widgetData.disponibilidadConValores" :key="elemento.name">
                         <span class="bullet" :class="{'red': elemento.value === 1, 'green': elemento.value === 2, 'yellow': elemento.value === 3}"></span> {{ elemento.name }}
@@ -36,8 +36,9 @@ export default {
             ];
             progress(
                 (Math.random() * (0.8 - 1) + 1) * 100,
-                "#graficaprogress",
-                ["#F3F3F4", "#6EFFDA", "#02839B", "#FFFFFF"],
+                "#"+this.id,
+                ["#049631", "#049631", "#049631", "#049631"],
+
                 options2
             );
 

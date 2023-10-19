@@ -28,6 +28,8 @@ export default {
 .card {
     padding: 10px;
     margin: 5px;
+    margin-left: 0px;
+    margin-right: -15px;
     border-radius: 10px;
     border: 1.5px solid gray;
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
@@ -46,7 +48,7 @@ export default {
 .icon-box {
     position: absolute;
     top: -15px;
-    left: 15%;
+    left: 10%;
     padding-left: 0;
     transform: translateX(-50%);
     background-color: #00B491;
@@ -60,9 +62,7 @@ export default {
 
 .icon-box img {
     width: 40px;
-    /* Ajusta el tamaño de la imagen */
     height: 40px;
-    /* border-radius: 50%; */
     padding: 5px;
 }
 </style>

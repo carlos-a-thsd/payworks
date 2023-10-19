@@ -1,9 +1,6 @@
 <template>
     <div class="sidebar" :style="{ width: sidebarWidth }">
-        <div v-if="collapsed == false">
-            <img src="/logo-banorte.png" alt=""
-                style="width: 13rem; height: 6rem; margin-bottom: 1em; margin-top: 1em; margin-left: 1em;">
-        </div>
+            <img src="/logo-banorte.png" alt="">
         <div class="container-date" v-if="collapsed == false">
             <img src="../../../public/image-profile.png" alt="" style="width: 4rem; height: 4rem;" />
             <div>
