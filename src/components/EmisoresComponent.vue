@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="row">
+        <div class="row ms-4">
             <div class="col">
                 <canvas :id="`${this.id}`" style="width:100%;height:100%;"></canvas>
             </div>

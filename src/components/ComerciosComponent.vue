@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div class="row">
+    <div class="">
+        <div class="row ms-4">
             <div class="col">
                 <canvas :id="`${this.id}`" style="width:100%;height:100%;"></canvas>
             </div>
@@ -16,7 +16,8 @@
         <div class="col-12 d-flex align-items-center justify-content-around">
             <div>
                 <span class="bullet"  style="background-color: green;"></span>
-                <h3 class=" d-inline">Autorizador B</h3>
+                <h3 v-if="id === 'comerciosFisicosAjustados'" class=" d-inline">Autorizador B</h3>
+                <h3 v-else class=" d-inline">Autorizador A</h3>
             </div>
         </div>
     </div>

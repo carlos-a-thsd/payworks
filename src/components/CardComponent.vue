@@ -12,7 +12,9 @@
         <div v-else class="titulo">
             <h6>{{ title }}</h6>
         </div>
-        <slot></slot>
+        <div class="">
+            <slot></slot>
+        </div>
     </div>
 </template>
 <script>

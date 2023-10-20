@@ -1,5 +1,5 @@
 <template>
-    <div class="row">
+    <div class="row ms-4">
         <div class="col-6">
             <canvas :id="`${id}`" style="width:100%;height:100%;"></canvas>
         </div>
@@ -19,10 +19,10 @@
                     <p class="d-inline">Total</p>
                 </div>
         </div>
-        <div class="col text-end ms-1">
-            <p class="d-inline">Total monetario:</p>
-            <h5 class="d-inline ms-1">{{ formatear("ch6", this.widgetData.transacciones[this.id].totalMonetario) }}</h5>
-        </div>
+    </div>
+    <div class="col text-center ms-0">
+        <p class="d-inline">Total monetario:</p>
+        <h5 class="d-inline ms-1">{{ formatear("ch6", this.widgetData.transacciones[this.id].totalMonetario) }}</h5>
     </div>
 </template>
 <script>

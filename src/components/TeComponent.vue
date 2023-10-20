@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="row">
+        <div class="row ms-1">
             <div class="col-4 ms-0">
                 <p class="mb-2">CCA</p>                
                 <ul class="custom-list">

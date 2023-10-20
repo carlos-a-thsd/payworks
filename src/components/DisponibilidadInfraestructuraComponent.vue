@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="ms-4">
         <div class="row">
-            <div class="col-5 me-0 pt-4">
+            <div class="col-6 me-0 pt-4">
                 <div class="ms-3" :id="`${this.id}`" style="width:100%;height:auto;"></div>
                 <div class="col d-flex pt-2">
                     <div class="col text-center mb-2">
@@ -14,7 +14,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-7 ms-0">
+            <div class="col-6 ms-0">
                 <ul class="custom-list">
                     <li v-for="elemento in widgetData.disponibilidadInfraestructuraConValores" :key="elemento.name">
                         <span class="bullet"

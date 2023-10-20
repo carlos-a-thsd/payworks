@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="ms-4">
         <div class="row">
             <div class="col-6 me-0 pt-4">
                 <div class="ms-4" :id="`${this.id}`" style="width:100%;height:auto%;"></div>
