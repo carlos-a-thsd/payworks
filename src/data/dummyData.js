@@ -187,133 +187,6 @@ export function getData() {
   const digitales = transaccionesNumeros();
   const fisicas = transaccionesNumeros();
 
-  // Infraestructura
-
-  // Servidores
-  const servidores = [
-    "SEFCU-WEB-1",
-    "SEFCU-WEB-2",
-    "SEFCU-WEB-3",
-    "SEFCU-WEB-4",
-  ];
-
-  const servidoresConValores = generarValoresAleatorios(servidores, 1, 4);
-
-  //   Seguridad
-  const seguridad = [
-    {
-      nombre: "Antivirus",
-      icon: "../../public/Shield.png",
-    },
-
-    {
-      nombre: "Licencias",
-      icon: "../../public/Lincence.png",
-    },
-  ];
-
-  const seguridadConValores = generarValoresAleatorios(seguridad, 1, 4);
-
-  //   Enlaces
-  const enlaces = ["Principal", "Secundario"].map((name) => {
-    const porcentaje = Math.round(Math.random() * 100);
-    const mb = Number(((porcentaje / 100) * 1000).toFixed(2));
-    let gb = 1.0;
-    if (mb > 0) {
-      gb = Math.max(1.0, Math.min(9.9, parseFloat((mb / 1000).toFixed(1))));
-    }
-
-    return {
-      name,
-      porcentaje,
-      mb,
-      gb,
-    };
-  });
-
-  //   Base de datos
-  const db = ["ATMTA", "ATMTXNDB", "CashManagementDB", "Dispatcher"];
-
-  const dbValores = generarValoresAleatorios(db, 1, 4);
-
-  //   Web servers
-  const webServers = ["SVRBRN0001", "SVRBRN0002", "SVRBRN0003", "SVRBRN0004"];
-
-  const webServersConValores = generarValoresAleatorios(webServers, 1, 4);
-
-  //   Comunicaciones
-  const porcentaje = Math.round(Math.random() * 100);
-  const usado = Number(((porcentaje / 100) * 1000).toFixed(2));
-  const disponible = Number((1000 - usado).toFixed(2));
-
-  const comunicaciones = [
-    {
-      name: "Ancho de Banda",
-      porcentaje,
-      usado,
-      disponible,
-    },
-  ];
-
-  //   windows
-  const Availability = Math.round(Math.random() * 100);
-  const CPU = Math.round(Math.random() * 100);
-  const Disk = Math.round(Math.random() * 100);
-  const Ram = Math.round(Math.random() * 100);
-  const windows = ["Availability", "CPU", "Disk", "Ram"];
-  const windowsConValores = generarValoresAleatorios(windows, 1, 4);
-
-  const windowsData = [
-    {
-      name: "CPU",
-      value: CPU,
-    },
-    {
-      name: "Disk",
-      value: Disk,
-    },
-    {
-      name: "Ram",
-      value: Ram,
-    },
-  ];
-
-  //   IIS
-  const response = Math.round(Math.random() * 100);
-  const code200 = Math.round(Math.random() * 100);
-  const code302 = Math.round(Math.random() * 100);
-  const code404 = Math.round(Math.random() * 100);
-  const code500 = Math.round(Math.random() * 100);
-
-  const iis = ["Response time", "Response code", "Application pool"];
-  const iisConValores = generarValoresAleatorios(iis, 1, 4);
-
-  const iisData = [
-    {
-      name: "200",
-      value: code200,
-    },
-    {
-      name: "302",
-      value: code302,
-    },
-    {
-      name: "404",
-      value: code404,
-    },
-    {
-      name: "500",
-      value: code500,
-    },
-  ];
-
-  const responsetime = [
-    {
-      name: "Response time",
-      value: response,
-    },
-  ];
-
   return {
     nombres,
     cats,
@@ -344,30 +217,6 @@ export function getData() {
       meta: metaTransaccional,
       porcentaje: Math.floor(Math.random() * 21) - 10,
     },
-    valorMonetario: {
-      values: [
-        {
-          date: 1695276000000,
-          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
-        },
-        {
-          date: 1695286000000,
-          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
-        },
-        {
-          date: 1695296000000,
-          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
-        },
-        {
-          date: 1695306000000,
-          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
-        },
-        {
-          date: 1695316000000,
-          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
-        },
-      ],
-    },
     transacciones: {
       digitales: {
         total: digitales.total,
@@ -390,21 +239,6 @@ export function getData() {
       actividad: totalMonetario,
       pronostico: pronosticoMonetario,
     },
-
-    // Infraestructura
-    servidoresConValores,
-    seguridadConValores,
-    enlaces,
-    dbValores,
-    webServersConValores,
-    comunicaciones,
-    windowsConValores,
-    windowsData,
-    Availability,
-    response,
-    iisConValores,
-    iisData,
-    responsetime,
   };
 }
 export const data = getData();

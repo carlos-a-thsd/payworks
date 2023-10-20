@@ -4,7 +4,7 @@
             <canvas :id="`${id}`" style="width:100%;height:100%;"></canvas>
         </div>
         <div class="col-6">
-            <div class="col text-center mb-2">
+                <div class="col text-center mb-2">
                     <h6 class="mb-0 ms-1">{{ formatear("n", this.widgetData.transacciones[this.id].grafica[0].value) }}</h6>
                     <span class="bullet me-1" style="background-color: #007B0C;"></span>
                     <p class="d-inline">Aceptadas</p>
@@ -78,7 +78,7 @@ export default {
     margin-right: 5px;
     /* margin-bottom:5px ; */
 }
-.p{
+p{
     font-size: 12px;
 }
 </style>

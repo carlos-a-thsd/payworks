@@ -33,8 +33,8 @@ export default {
                 { name: "total", count: [total] }
             ];
             stackedHbar("mundo", resume, "ch6", [
-                "#235D8C",
-                "#CCCCCC",
+                "#049631",
+                "#049631",
             ], maxim);
             // smallLine("mundo", "#676544");
             stackedHbar()
