@@ -7,8 +7,12 @@
             <div class="col ms-0">
                 <ul class="custom-list">
                     <li v-for="(emisor, index) in widgetData.emisoresAjustados" :key="emisor.name">
+<<<<<<< HEAD
                         <span class="bullet" :style="{ backgroundColor: colores[index % colores.length] }"></span> {{
                             emisor.name + " " + formatear("p100", emisor.value) }}
+=======
+                        <span class="bullet" :style="{ backgroundColor: colores[index % colores.length] }"></span> {{ emisor.name +" "+emisor.value }}
+>>>>>>> parent of e568f57 (feat: :fire: realizar top emisores y comercios)
                     </li>
                 </ul>
             </div>
@@ -30,7 +34,7 @@ export default {
     ],
     methods: {
         buildComponent() {
-            ChartLib.palettes.custom = this.colores;
+            ChartLib.palettes.custom = this.colores;  
             ChartLib.pie(this.id, this.widgetData.emisoresAjustados, {
                 xvalues: "name",
                 yvalues: ["value"],
@@ -67,15 +71,11 @@ export default {
 
 .bullet {
     display: inline-block;
-    width: 15px;
-    /* Ancho del bullet */
-    height: 12px;
-    /* Alto del bullet */
-    background-color: #004e97;
-    /* Color de fondo del bullet */
-    border-radius: 4px;
-    /* Bordes rectos para hacerlo rectangular */
-    margin-right: 5px;
-    /* Espacio entre los bullets y el texto */
+    width: 15px; /* Ancho del bullet */
+    height: 12px; /* Alto del bullet */
+    background-color: #004e97; /* Color de fondo del bullet */
+    border-radius: 4px; /* Bordes rectos para hacerlo rectangular */
+    margin-right: 5px; /* Espacio entre los bullets y el texto */
 }
+
 </style>

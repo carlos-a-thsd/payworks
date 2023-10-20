@@ -8,6 +8,7 @@
                 <h1 class="mt-0 mb-4 d-inline">Dashboards - payworks</h1>
             </div>
             <div class="col-4">
+<<<<<<< HEAD
                 <div class="input-group rounded">
                     <input type="search" class="form-control rounded" placeholder="Buscar" aria-label="Search"
                         aria-describedby="search-addon" />
@@ -18,6 +19,16 @@
                         </svg>
                     </span>
                 </div>
+=======
+                <CardComponent title="Emisores" icon="banda.png">
+                    <EmisoresComponent id="otro" :widgetData="dummydata"></EmisoresComponent>
+                </CardComponent>
+            </div>
+            <div class="col-4">
+                <CardComponent title="Bancos">
+                    Aquí va el componente
+                </CardComponent>
+>>>>>>> parent of e568f57 (feat: :fire: realizar top emisores y comercios)
             </div>
         </div>
         <BarPronostico id="bar" :widgetData="dummydata"></BarPronostico>
@@ -120,7 +131,6 @@
 </template>
 <script setup>
 import CardComponent from '../components/CardComponent.vue';
-import TopComerciosComponent from '../components/TopComerciosComponent.vue';
 import test from '../components/test.vue';
 import EmisoresComponent from '../components/EmisoresComponent.vue';
 import ResumenVolumenMonetario from '../components/ResumenVolumenMonetario.vue';
@@ -136,8 +146,6 @@ import ModeloTransaccionalComponent from '../components/ModeloTransaccionalCompo
 import ModeloMonetarioComponent from '../components/ModeloMonetarioComponent.vue'
 import { onMounted, ref } from "vue"
 import { getData } from '../data/dummyData';
-import TopEmisoresComponent from '../components/TopEmisoresComponent.vue';
-import TransaccionesComponent from '../components/TransaccionesComponent.vue';
 
 const dummydata = ref(getData())
 onMounted(() => {

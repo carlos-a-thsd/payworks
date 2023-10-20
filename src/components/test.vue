@@ -13,6 +13,7 @@ export default {
     ],
     methods: {
         buildComponent() {
+<<<<<<< HEAD
             var options2 = [
                 {
                     w: "100",
@@ -31,6 +32,24 @@ export default {
                 options2
             );
 
+=======
+            ChartLib.palettes.custom = colores;            
+            ChartLib.bar(this.id, this.widgetData.cats, {
+                xvalues: "name",
+                yvalues: ["value"],
+                palette: "custom",
+                xfmt: "n",
+                yfmt: "s"
+            });
+        }
+    },
+    watch: {
+        widgetData: {
+            handler() {
+                this.buildComponent();
+            },
+            deep: true,
+>>>>>>> parent of e568f57 (feat: :fire: realizar top emisores y comercios)
         }
     },
     // watch: {
@@ -48,4 +67,6 @@ export default {
     }
 }
 </script>
-<style></style>
+<style>
+    
+</style>
