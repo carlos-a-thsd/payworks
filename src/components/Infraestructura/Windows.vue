@@ -1,0 +1,127 @@
+<template>
+    <div class="card">
+        <h1>Windows</h1>
+        <div class="container-w">
+            <div class="col">
+                <div>
+                    <p class="porcentajeAvailability">{{ widgetData.Availability }} %</p>
+                    <h2 class="availability">Availability</h2>
+                </div>
+                <ul class="custom-list">
+                    <li v-for="elemento in widgetData.windowsConValores" :key="elemento.name">
+                        <span class="bullet" :class="{
+                            red: elemento.value === 1,
+                            green: elemento.value === 2,
+                            yellow: elemento.value === 3
+                        }"></span>
+                        {{ elemento.name }}
+                    </li>
+                </ul>
+            </div>
+            <div class="col">
+                <div>
+                    <canvas id="chart-1" style="width:100%;height:20%;"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+  
+<script>
+import { ChartLib } from '../../components/libs/ChartLib';
+
+export default {
+    data() {
+        return {
+            colores: [
+                '#004e97',
+                '#46b3a9',
+                '#fc586f',
+                '#8b74d7',
+                '#fdbc38',
+                '#6e838e',
+                '#2a9ec6',
+                '#e10052',
+                '#26e7a7'
+            ]
+        };
+    },
+    props: ['id', 'widgetData'],
+    methods: {
+        buildComponent() {
+            ChartLib.palettes.custom = this.colores;
+            ChartLib.line("chart-1", this.widgetData.valorMonetario.values, {
+                xvalues: "date",
+                yvalues: ["count"],
+                yfmt: "n",
+                legend: false,
+                palette: "custom",
+                // fill: ["#3cba9f"],
+            });
+            console.log(this.widgetData.valorMonetario)
+
+        }
+    },
+    watch: {
+        'widgetData.windowsData': {
+            handler() {
+                this.buildComponent();
+            },
+            deep: true
+        }
+    },
+    mounted() {
+        this.$nextTick(() => {
+            this.buildComponent();
+        });
+    }
+};
+</script>
+  
+<style scoped>
+h1 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.card {
+    padding: 10px;
+    margin: 5px;
+    margin-left: 0px;
+    margin-right: -15px;
+    border-radius: 10px;
+    border: 1.5px solid gray;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+    height: auto;
+    width: auto;
+    background-color: #FFFDFF;
+}
+
+.container-w {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+    margin-top: 10px;
+}
+
+.availability {
+    font-size: .8rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.porcentajeAvailability {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: center;
+    color: #000000;
+}
+</style>
+  
