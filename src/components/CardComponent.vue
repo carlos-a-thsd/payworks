@@ -4,8 +4,13 @@
             <img :src="imageSrc" alt="Icon">
         </div>
 
-        <div class="titulo">
-            <h6>{{ this.title }}</h6>
+        <div v-if="ruta" class="titulo">
+            <router-link :to="{ name: this.ruta, params: { tipo: this.type } }" style="text-decoration: none; color: black;">
+                <h6>{{ title }}</h6>
+            </router-link>
+        </div>
+        <div v-else class="titulo">
+            <h6>{{ title }}</h6>
         </div>
         <slot></slot>
     </div>
@@ -14,12 +19,18 @@
 export default {
     props: [
         "title",
-        "icon"
+        "icon",
+        "ruta",
+        "type"
     ],
-    computed:{
-        imageSrc(){
+    computed: {
+        imageSrc() {
             return new URL(`../assets/${this.icon}`, import.meta.url).href;
-        }
+        },
+        // link(){
+        //     return `${this.ruta}`;
+        // },
+
     }
 };
 </script>

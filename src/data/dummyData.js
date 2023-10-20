@@ -7,10 +7,10 @@ function distribuirValores(elementos) {
         value: Math.floor(elemento.value * factorDeEscalado)
     }));
 }
-function aleatorioResumenMonetario(){
+function aleatorioResumenMonetario() {
     return Math.floor(Math.random() * (10000000000 - 1000000000 + 1)) + 1000000000;
 }
-function aleatorioResumenTransacional(){
+function aleatorioResumenTransacional() {
     return Math.floor(Math.random() * (100000 - 10000 + 1)) + 10000;
 }
 
@@ -54,7 +54,7 @@ function generarValoresAleatorios(nombres, rangoMinimo, rangoMaximo) {
 
 function transaccionesNumeros() {
     const aceptadas = Math.floor(Math.random() * (100000 - 20000 + 1) + 20000);
-    const rechazadas = aceptadas*.12;
+    const rechazadas = aceptadas * .12;
     const total = aceptadas + rechazadas;
     const totalMonetario = Math.floor(Math.random() * (1000000000 - 200000000 + 1) + 200000000);
     const resultado = {
@@ -75,47 +75,63 @@ export function getData() {
             count: Math.floor(Math.random() * (100 - 20) + 20),
         })
     );
-    
-    const disponibilidadInfraestructura = ["Servidores", "Base de datos", "Comunicaciones", "F5","Enlaces", "IIS", "Seguridad", "Web Servers"];
+
+    const disponibilidadInfraestructura = ["Servidores", "Base de datos", "Comunicaciones", "F5", "Enlaces", "IIS", "Seguridad", "Web Servers"];
     const disponibilidadInfraestructuraConValores = generarValoresAleatorios(disponibilidadInfraestructura, 1, 4);
-    
-    const disponibilidad = ["Portal Payworks", "Emisores", "Comercios", "Comercios Digitales","Comercios Físicos", "Transacciones Físicas", "Transacciones Digitales"];
+
+    const disponibilidad = ["Portal Payworks", "Emisores", "Comercios", "Comercios Digitales", "Comercios Físicos", "Transacciones Físicas", "Transacciones Digitales"];
     const disponibilidadConValores = generarValoresAleatorios(disponibilidad, 1, 4);
-    
+
     const cats = ["Monterrey", "Cd. de México", "Durango"].map(name => ({ name, value: Math.random() * 100000 }));
     const emisores = ["Banorte", "BBVA", "HSBC", "Santander", "Citibanamex"];
     const emisoresConValores = generarValoresAleatorios(emisores, 0, 100);
     const emisoresAjustados = distribuirValores(emisoresConValores)
-    
+
     const comerciosDigitales = ["eBay", "Amazon", "Mercado Libre", "Netflix", "Spotify"];
     const comerciosDigitalesConValores = generarValoresAleatorios(comerciosDigitales, 0, 100);
     const comerciosDigitalesAjustados = distribuirValores(comerciosDigitalesConValores);
-    
+
     const comerciosFisicos = ["Walmart", "Apple Store", "McDonald's", "Liverpool", "Coppel"];
     const comerciosFisicosConValores = generarValoresAleatorios(comerciosFisicos, 0, 100);
     const comerciosFisicosAjustados = distribuirValores(comerciosFisicosConValores);
-    
+
     const nodos = ["PayworksWS", "Payworks AUT", "PayworksAuteGlobal", "PaywPlusWeb"];
     const nodosConValores = generarValoresAleatorios(nodos, 5, 15);
-    
-    
+
+
     const puntosContacto = ["via.pagosbanorte.com", "CCA", "Tlalpan"];
     const puntosContactoConValores = generarValoresAleatorios(puntosContacto, 1, 4);
 
+    const cca = ["Avalibility", "Total Time mean", "Latency mean", "Packet max", "Packet mean"];
+    const ccaContactoConValores = generarValoresAleatorios(cca, 1, 4);
+    const viaPagos = ["Avalibility", "Total Time mean", "DNS mean"];
+    const viaPagosContactoConValores = generarValoresAleatorios(viaPagos, 1, 4);
+    const tlalpan = ["Avalibility", "Total Time mean", "Latency mean", "Packet loss mean", "Packet loss max "];
+    const tlalpanContactoConValores = generarValoresAleatorios(tlalpan, 1, 4);
+
 
     const totalMonetario = aleatorioResumenMonetario();
-    const pronosticoMonetario = totalMonetario+9908000000;
+    const pronosticoMonetario = totalMonetario + 9908000000;
     const promedioMonetario = totalMonetario + 43534;
-    const metaMonetario = pronosticoMonetario+109148;
-    
+    const metaMonetario = pronosticoMonetario + 109148;
+
     const totalTransaccional = aleatorioResumenTransacional();
-    const pronosticoTransaccional = totalTransaccional+10000;
+    const pronosticoTransaccional = totalTransaccional + 10000;
     const promedioTransaccional = totalTransaccional + 43534;
-    const metaTransaccional = pronosticoTransaccional+109148;
+    const metaTransaccional = pronosticoTransaccional + 109148;
 
     const digitales = transaccionesNumeros();
     const fisicas = transaccionesNumeros();
 
+
+
+    const categoriasDigital = ["Electrónica", "Artículos para el Hogar y autos", "Farmacia", "Bebidas y licores", "Ropa y Zapatería", "Bebés", "Carnes, Pescados y Mariscos", "Cuidado de la ropa", "Lácteos", "Congelados"];
+    const categoriasDigitalConValores = generarValoresAleatorios(categoriasDigital, 0, 100);
+    const categoriasDigitalAjustados = distribuirValores(categoriasDigitalConValores)
+    const categoriasFisica = ["Televisores", "Computación", "Telefonía", "Línea Blanca", "Colchones y blancos", "Decoración y Muebles", "Audio", "Vitaminas y Suplementos", "Medicamentos de Alta Especialidad", "Cervezas"];
+    const categoriasFisicaConValores = generarValoresAleatorios(categoriasDigital, 0, 100);
+    const categoriasFisicaAjustados = distribuirValores(categoriasFisicaConValores)
+    
 
     return {
         nombres,
@@ -127,47 +143,57 @@ export function getData() {
         disponibilidadInfraestructuraConValores,
         nodosConValores,
         puntosContactoConValores,
-        "dispInfra":{
-            "prom":(Math.random() * (0.8 - 1) + 1) * 100,
-            "sla":(Math.random() * (0.8 - 1) + 1) * 100
+
+        "dispInfra": {
+            "prom": (Math.random() * (0.8 - 1) + 1) * 100,
+            "sla": (Math.random() * (0.8 - 1) + 1) * 100
         },
         "timeline1": getTimelineData(),
         "timeline2": getTimelineData(),
-        "resumenMonetario":{
-            "total":totalMonetario,
-            "pronostico":pronosticoMonetario,
-            "promedio":promedioMonetario,
-            "meta":metaMonetario,
-            "porcentaje":(Math.floor(Math.random() * 21) - 10)
+        "resumenMonetario": {
+            "total": totalMonetario,
+            "pronostico": pronosticoMonetario,
+            "promedio": promedioMonetario,
+            "meta": metaMonetario,
+            "porcentaje": (Math.floor(Math.random() * 21) - 10)
         },
-        "resumenTransaccional":{
-            "total":totalTransaccional,
-            "pronostico":pronosticoTransaccional,
-            "promedio":promedioTransaccional,
-            "meta":metaTransaccional,
-            "porcentaje":(Math.floor(Math.random() * 21) - 10)
+        "resumenTransaccional": {
+            "total": totalTransaccional,
+            "pronostico": pronosticoTransaccional,
+            "promedio": promedioTransaccional,
+            "meta": metaTransaccional,
+            "porcentaje": (Math.floor(Math.random() * 21) - 10)
         },
-        "transacciones":{
-            "digitales":{
+        "transacciones": {
+            "digitales": {
                 "total": digitales.total,
-                "totalMonetario":digitales.totalMonetario,
-                "grafica":[
-                    {name: "aceptadas", value: digitales.aceptadas},
-                    {name: "rechazadas", value: digitales.rechazadas}            
+                "totalMonetario": digitales.totalMonetario,
+                "grafica": [
+                    { name: "aceptadas", value: digitales.aceptadas },
+                    { name: "rechazadas", value: digitales.rechazadas }
                 ]
             },
-            "fisicas":{
+            "fisicas": {
                 "total": fisicas.total,
-                "totalMonetario":digitales.totalMonetario,
-                "grafica":[
-                    {name: "aceptadas", value: fisicas.aceptadas},
-                    {name: "rechazadas", value: fisicas.rechazadas}            
+                "totalMonetario": digitales.totalMonetario,
+                "grafica": [
+                    { name: "aceptadas", value: fisicas.aceptadas },
+                    { name: "rechazadas", value: fisicas.rechazadas }
                 ]
             },
         },
-        "resumenBar":{
+        "resumenBar": {
             "actividad": totalMonetario,
             "pronostico": pronosticoMonetario
+        },
+        "te": {
+            "cca": ccaContactoConValores,
+            "viaPagos": viaPagosContactoConValores,
+            "tlalpan": tlalpanContactoConValores
+        },
+        "topCategorias": {
+            "digitales": categoriasDigitalAjustados,
+            "fisicas": categoriasFisicaAjustados
         }
     }
 }

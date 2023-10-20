@@ -23,7 +23,7 @@
         <div class="row mt-4">
             <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
                 <CardComponent title="Salud/Disponibilidad" icon="banda.png">
-                    <DisponibilidadComponent id="disponibilidad" :widgetData="dummydata"></DisponibilidadComponent>
+                    <DisponibilidadComponent id="disponibilidad" :widgetData="dummydata" ></DisponibilidadComponent>
                 </CardComponent>
             </div>
             <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
@@ -46,7 +46,7 @@
 
         <div class="row mt-3">
             <div class="col-3">
-                <CardComponent title="Comercios Digitales" icon="banda.png">
+                <CardComponent title="Comercios Digitales" icon="banda.png" type="digitales" ruta="comercios" tipoComercio="digitales">
                     <ComerciosComponent id="comerciosDigitalesAjustados" :widgetData="dummydata"></ComerciosComponent>
                 </CardComponent>
             </div>
@@ -56,7 +56,7 @@
                 </CardComponent>
             </div>
             <div class="col-3">
-                <CardComponent title="Comercios Físicos" icon="banda.png">
+                <CardComponent title="Comercios Físicos" icon="banda.png" type="fisicos" ruta="comercios">
                     <ComerciosComponent id="comerciosFisicosAjustados" :widgetData="dummydata"></ComerciosComponent>
                 </CardComponent>
             </div>
@@ -80,6 +80,7 @@
             </div>
             <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
                 <CardComponent title="ThousandEyes" icon="banda.png">
+                    <TeComponent id="te" :widgetData="dummydata"></TeComponent>
                 </CardComponent>
             </div>
             <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
@@ -123,6 +124,7 @@ import TransaccionesComponent from '../components/TransaccionesComponent.vue';
 import NodosComponent from '../components/NodosComponent.vue';
 import PuntosContactoComponent from '../components/PuntosContactoComponent.vue';
 import BarPronostico from '../components/BarPronostico.vue';
+import TeComponent from '../components/TeComponent.vue';
 
 import ModeloTransaccionalComponent from '../components/ModeloTransaccionalComponent.vue';
 import ModeloMonetarioComponent from '../components/ModeloMonetarioComponent.vue'
