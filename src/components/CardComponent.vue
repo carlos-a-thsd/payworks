@@ -16,8 +16,8 @@ export default {
         "title",
         "icon"
     ],
-    computed: {
-        imageSrc() {
+    computed:{
+        imageSrc(){
             return new URL(`../assets/${this.icon}`, import.meta.url).href;
         }
     }

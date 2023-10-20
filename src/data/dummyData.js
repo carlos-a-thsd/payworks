@@ -124,118 +124,75 @@ export function getData() {
   const emisoresConValores = generarValoresAleatorios(emisores, 0, 100);
   const emisoresAjustados = distribuirValores(emisoresConValores);
 
-  const comerciosDigitales = [
-    "eBay",
-    "Amazon",
-    "Mercado Libre",
-    "Netflix",
-    "Spotify",
-  ];
-  const comerciosDigitalesConValores = generarValoresAleatorios(
-    comerciosDigitales,
-    0,
-    100
-  );
-  const comerciosDigitalesAjustados = distribuirValores(
-    comerciosDigitalesConValores
+  const totalActual = emisoresConValores.reduce(
+    (total, emisor) => total + emisor.value,
+    0
   );
 
-  const comerciosFisicos = [
-    "Walmart",
-    "Apple Store",
-    "McDonald's",
-    "Liverpool",
-    "Coppel",
-  ];
-  const comerciosFisicosConValores = generarValoresAleatorios(
-    comerciosFisicos,
-    0,
-    100
-  );
-  const comerciosFisicosAjustados = distribuirValores(
-    comerciosFisicosConValores
-  );
+  const factorDeEscalado = 100 / totalActual;
+  const emisoresAjustados = emisoresConValores.map((emisor) => ({
+    name: emisor.name,
+    value: Math.floor(emisor.value * factorDeEscalado),
+  }));
 
-  const nodos = [
-    "PayworksWS",
-    "Payworks AUT",
-    "PayworksAuteGlobal",
-    "PaywPlusWeb",
-  ];
-  const nodosConValores = generarValoresAleatorios(nodos, 5, 15);
+  //   Top comercios
+  const comercios = ["Amazon", "Walmart", "Mercado Libre", "Bodega Aurrera"];
 
-  const puntosContacto = ["via.pagosbanorte.com", "CCA", "Tlalpan"];
-  const puntosContactoConValores = generarValoresAleatorios(
-    puntosContacto,
-    1,
-    4
-  );
+  const topComerciosData = comercios.map((comercio) => {
+    const total = Math.floor(Math.random() * 100) * 10 + 300;
+    const meta = total * 1.05;
+    const pronostico = total * 1.1;
+    const desviacion = ((pronostico - total) / total) * 100;
+    const desviacionAjustada = desviacion + (Math.random() - 0.5) * 20;
 
-  const totalMonetario = aleatorioResumenMonetario();
-  const pronosticoMonetario = totalMonetario + 9908000000;
-  const promedioMonetario = totalMonetario + 43534;
-  const metaMonetario = pronosticoMonetario + 109148;
+    // Sacar la disponibilidad y la no disponibilidad
+    const disponibilidad = Math.floor(Math.random() * 100);
+    const noDisponibilidad = 100 - disponibilidad;
 
-  const totalTransaccional = aleatorioResumenTransacional();
-  const pronosticoTransaccional = totalTransaccional + 10000;
-  const promedioTransaccional = totalTransaccional + 43534;
-  const metaTransaccional = pronosticoTransaccional + 109148;
+    return [
+      {
+        name: comercio,
+        disponibilidad,
+        noDisponibilidad,
+        total: total,
+        desviacion: desviacionAjustada,
+        meta: meta,
+        pronostico: pronostico,
+      },
+    ];
+  });
+  console.log(topComerciosData);
 
-  const digitales = transaccionesNumeros();
-  const fisicas = transaccionesNumeros();
+  //   Top emisores
+  const topEmisores = ["BBVA", "Santander", "Banorte", "HSBC"];
+  const topEmisoresData = topEmisores.map((emisor, index) => {
+    const total = Math.floor(Math.random() * 100) * 10 + 300;
+    const disponibilidad = Math.random() * 25 + 75;
+    const meta = total * 1.05;
+    const pronostico = total * 1.1;
+    const desviacion = ((pronostico - total) / total) * 100;
+    const desviacionAjustada = desviacion + (Math.random() - 0.5) * 20;
+
+    return [
+      {
+        name: emisor,
+        disponibilidad,
+        total: total,
+        desviacion: desviacionAjustada,
+        meta: meta,
+        pronostico: pronostico,
+      },
+    ];
+  });
+
+  //   Transacciones
 
   return {
     nombres,
     cats,
     emisoresAjustados,
-    comerciosDigitalesAjustados,
-    comerciosFisicosAjustados,
-    disponibilidadConValores,
-    disponibilidadInfraestructuraConValores,
-    nodosConValores,
-    puntosContactoConValores,
-    dispInfra: {
-      prom: (Math.random() * (0.8 - 1) + 1) * 100,
-      sla: (Math.random() * (0.8 - 1) + 1) * 100,
-    },
-    timeline1: getTimelineData(),
-    timeline2: getTimelineData(),
-    resumenMonetario: {
-      total: totalMonetario,
-      pronostico: pronosticoMonetario,
-      promedio: promedioMonetario,
-      meta: metaMonetario,
-      porcentaje: Math.floor(Math.random() * 21) - 10,
-    },
-    resumenTransaccional: {
-      total: totalTransaccional,
-      pronostico: pronosticoTransaccional,
-      promedio: promedioTransaccional,
-      meta: metaTransaccional,
-      porcentaje: Math.floor(Math.random() * 21) - 10,
-    },
-    transacciones: {
-      digitales: {
-        total: digitales.total,
-        totalMonetario: digitales.totalMonetario,
-        grafica: [
-          { name: "aceptadas", value: digitales.aceptadas },
-          { name: "rechazadas", value: digitales.rechazadas },
-        ],
-      },
-      fisicas: {
-        total: fisicas.total,
-        totalMonetario: digitales.totalMonetario,
-        grafica: [
-          { name: "aceptadas", value: fisicas.aceptadas },
-          { name: "rechazadas", value: fisicas.rechazadas },
-        ],
-      },
-    },
-    resumenBar: {
-      actividad: totalMonetario,
-      pronostico: pronosticoMonetario,
-    },
+    topComerciosData,
+    topEmisoresData,
   };
 }
 export const data = getData();

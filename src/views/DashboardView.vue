@@ -39,95 +39,89 @@
                     <ResumenVolumenTransaccional :widgetData="dummydata"></ResumenVolumenTransaccional>
                 </CardComponent>
             </div>
-            <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
-                <CardComponent title="Disponibilidad/Infraestructura" icon="banda.png">
-                    <DisponibilidadInfraestructuraComponent id="disponibilidadInfraestructura" :widgetData="dummydata">
-                    </DisponibilidadInfraestructuraComponent>
-                </CardComponent>
+            <div class="col-4">
+                <CardComponent title="Bancos">
+                    Aquí va el componente
+                    <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
+                        <CardComponent title="Disponibilidad/Infraestructura" icon="banda.png">
+                            <DisponibilidadInfraestructuraComponent id="disponibilidadInfraestructura"
+                                :widgetData="dummydata">
+                            </DisponibilidadInfraestructuraComponent>
+                        </CardComponent>
+                    </div>
             </div>
-            <div class="mt-4">
-                <h1>Top comercios</h1>
-                <TopComerciosComponent :widgetData="dummydata" id="comercios" />
-            </div>
-            <div class="mt-4">
-                <h1>Top Emisores</h1>
-                <TopEmisoresComponent :widgetData="dummydata" id="topEmisores" />
-            </div>
-            <div class="col-4 mt-4">
-                <TransaccionesComponent :widgetData="dummydata" id="transacciones" />
-            </div>
-        </div>
 
-        <div class="row mt-3">
-            <div class="col-3">
-                <CardComponent title="Comercios Digitales" icon="banda.png">
-                    <ComerciosComponent id="comerciosDigitalesAjustados" :widgetData="dummydata"></ComerciosComponent>
-                </CardComponent>
+            <div class="row mt-3">
+                <div class="col-3">
+                    <CardComponent title="Comercios Digitales" icon="banda.png">
+                        <ComerciosComponent id="comerciosDigitalesAjustados" :widgetData="dummydata"></ComerciosComponent>
+                    </CardComponent>
+                </div>
+                <div class="col-3">
+                    <CardComponent title="Transacciones Digitales" icon="banda.png">
+                        <TransaccionesComponent id="digitales" :widgetData="dummydata"></TransaccionesComponent>
+                    </CardComponent>
+                </div>
+                <div class="col-3">
+                    <CardComponent title="Comercios Físicos" icon="banda.png">
+                        <ComerciosComponent id="comerciosFisicosAjustados" :widgetData="dummydata"></ComerciosComponent>
+                    </CardComponent>
+                </div>
+                <div class="col-3">
+                    <CardComponent title="Transacciones Físicas" icon="banda.png">
+                        <TransaccionesComponent id="fisicas" :widgetData="dummydata"></TransaccionesComponent>
+                    </CardComponent>
+                </div>
             </div>
-            <div class="col-3">
-                <CardComponent title="Transacciones Digitales" icon="banda.png">
-                    <TransaccionesComponent id="digitales" :widgetData="dummydata"></TransaccionesComponent>
-                </CardComponent>
-            </div>
-            <div class="col-3">
-                <CardComponent title="Comercios Físicos" icon="banda.png">
-                    <ComerciosComponent id="comerciosFisicosAjustados" :widgetData="dummydata"></ComerciosComponent>
-                </CardComponent>
-            </div>
-            <div class="col-3">
-                <CardComponent title="Transacciones Físicas" icon="banda.png">
-                    <TransaccionesComponent id="fisicas" :widgetData="dummydata"></TransaccionesComponent>
-                </CardComponent>
-            </div>
-        </div>
 
-        <div class="row mt-3">
-            <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
-                <CardComponent title="Emisores" icon="banda.png">
-                    <EmisoresComponent id="emisores" :widgetData="dummydata"></EmisoresComponent>
-                </CardComponent>
+            <div class="row mt-3">
+                <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
+                    <CardComponent title="Emisores" icon="banda.png">
+                        <EmisoresComponent id="emisores" :widgetData="dummydata"></EmisoresComponent>
+                    </CardComponent>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
+                    <CardComponent title="Puntos de Contacto" icon="banda.png">
+                        <PuntosContactoComponent id="puntosContacto" :widgetData="dummydata"></PuntosContactoComponent>
+                    </CardComponent>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
+                    <CardComponent title="ThousandEyes" icon="banda.png">
+                    </CardComponent>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
+                    <CardComponent title="Nodos" icon="banda.png">
+                        <NodosComponent id="nodos" :widgetData="dummydata"></NodosComponent>
+                    </CardComponent>
+                </div>
             </div>
-            <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
-                <CardComponent title="Puntos de Contacto" icon="banda.png">
-                    <PuntosContactoComponent id="puntosContacto" :widgetData="dummydata"></PuntosContactoComponent>
-                </CardComponent>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
-                <CardComponent title="ThousandEyes" icon="banda.png">
-                </CardComponent>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
-                <CardComponent title="Nodos" icon="banda.png">
-                    <NodosComponent id="nodos" :widgetData="dummydata"></NodosComponent>
-                </CardComponent>
-            </div>
-        </div>
 
 
-        <div class="row mt-3">
-            <div class="col-6">
-                <CardComponent title="Modelo analítico Transaccional" icon="banda.png">
-                    <ModeloTransaccionalComponent id="transaccional" :widgetData="dummydata"></ModeloTransaccionalComponent>
-                </CardComponent>
+            <div class="row mt-3">
+                <div class="col-6">
+                    <CardComponent title="Modelo analítico Transaccional" icon="banda.png">
+                        <ModeloTransaccionalComponent id="transaccional" :widgetData="dummydata">
+                        </ModeloTransaccionalComponent>
+                    </CardComponent>
+                </div>
+                <div class="col-6">
+                    <CardComponent title="Modelo analítico Monetario" icon="banda.png">
+                        <ModeloMonetarioComponent id="monetario" :widgetData="dummydata"></ModeloMonetarioComponent>
+                    </CardComponent>
+                </div>
             </div>
-            <div class="col-6">
-                <CardComponent title="Modelo analítico Monetario" icon="banda.png">
-                    <ModeloMonetarioComponent id="monetario" :widgetData="dummydata"></ModeloMonetarioComponent>
-                </CardComponent>
-            </div>
-        </div>
-        <!-- <div class="col-4">
+            <!-- <div class="col-4">
 
             <CardComponent title="Disponibilidad" icon="banda.png">
                 <test></test>
             </CardComponent>
         </div>             -->
-    </div>
+        </div>
 </template>
 <script setup>
 import CardComponent from '../components/CardComponent.vue';
 import TopComerciosComponent from '../components/TopComerciosComponent.vue';
-import ComerciosComponent from '../components/ComerciosComponent.vue';
+import test from '../components/test.vue';
 import EmisoresComponent from '../components/EmisoresComponent.vue';
 import ResumenVolumenMonetario from '../components/ResumenVolumenMonetario.vue';
 import ResumenVolumenTransaccional from '../components/ResumenVolumenTransaccional.vue';
@@ -143,6 +137,7 @@ import ModeloMonetarioComponent from '../components/ModeloMonetarioComponent.vue
 import { onMounted, ref } from "vue"
 import { getData } from '../data/dummyData';
 import TopEmisoresComponent from '../components/TopEmisoresComponent.vue';
+import TransaccionesComponent from '../components/TransaccionesComponent.vue';
 
 const dummydata = ref(getData())
 onMounted(() => {

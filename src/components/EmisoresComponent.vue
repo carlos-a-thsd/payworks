@@ -15,7 +15,6 @@
         </div>
     </div>
 </template>
-
 <script>
 import { ChartLib } from '../components/libs/ChartLib';
 import { fmt } from './libs/fmt';
@@ -59,7 +58,6 @@ export default {
     }
 }
 </script>
-
 <style scoped>
 .custom-list {
     list-style-type: none;
@@ -70,9 +68,14 @@ export default {
 .bullet {
     display: inline-block;
     width: 15px;
-    height: 15px;
+    /* Ancho del bullet */
+    height: 12px;
+    /* Alto del bullet */
     background-color: #004e97;
-    border-radius: 10px;
+    /* Color de fondo del bullet */
+    border-radius: 4px;
+    /* Bordes rectos para hacerlo rectangular */
     margin-right: 5px;
+    /* Espacio entre los bullets y el texto */
 }
 </style>
