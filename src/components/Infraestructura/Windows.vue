@@ -19,8 +19,20 @@
                 </ul>
             </div>
             <div class="col">
-                <div>
-                    <canvas id="chart-1" style="width:100%;height:20%;"></canvas>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 1rem;">
+                    <p>CPU</p>
+                    <canvas :id="this.id + `1`" style="width:305px;height:80px;"></canvas>
+                </div>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 1rem;">
+                    <p>RAM</p>
+                    <canvas :id="this.id + `2`" style="width:305px;height:80px;"></canvas>
+                </div>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 1rem;">
+                    <p>Disk</p>
+                    <div>
+                        <canvas :id="this.id + `3`" style="width:305px;height:50px;"></canvas>
+                        <canvas :id="this.id + `4`" style="width:305px;height:50px;"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
@@ -50,15 +62,40 @@ export default {
     methods: {
         buildComponent() {
             ChartLib.palettes.custom = this.colores;
-            ChartLib.line("chart-1", this.widgetData.valorMonetario.values, {
+            ChartLib.line(this.id + `1`, this.widgetData.CPU.values, {
                 xvalues: "date",
                 yvalues: ["count"],
                 yfmt: "n",
                 legend: false,
                 palette: "custom",
-                // fill: ["#3cba9f"],
             });
-            console.log(this.widgetData.valorMonetario)
+
+            ChartLib.bar(this.id + `2`, this.widgetData.ram.values, {
+                xvalues: "date",
+                yvalues: ["count"],
+                yfmt: "n",
+                legend: false,
+                palette: "custom",
+                fill: ["#3cba9f"],
+            });
+
+            ChartLib.hbar(this.id + `3`, this.widgetData.diskC.values, {
+                xvalues: "date",
+                yvalues: ["count"],
+                yfmt: "s",
+                legend: false,
+                palette: "custom",
+                fill: ["#3cba9f"],
+            });
+
+            ChartLib.hbar(this.id + `4`, this.widgetData.diskD.values, {
+                xvalues: "date",
+                yvalues: ["count"],
+                yfmt: "s",
+                legend: true,
+                palette: "custom",
+                fill: ["#3cba9f"],
+            });
 
         }
     },

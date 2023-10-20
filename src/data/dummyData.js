@@ -263,21 +263,6 @@ export function getData() {
   const windows = ["Availability", "CPU", "Disk", "Ram"];
   const windowsConValores = generarValoresAleatorios(windows, 1, 4);
 
-  const windowsData = [
-    {
-      name: "CPU",
-      value: CPU,
-    },
-    {
-      name: "Disk",
-      value: Disk,
-    },
-    {
-      name: "Ram",
-      value: Ram,
-    },
-  ];
-
   //   IIS
   const response = Math.round(Math.random() * 100);
   const code200 = Math.round(Math.random() * 100);
@@ -344,7 +329,75 @@ export function getData() {
       meta: metaTransaccional,
       porcentaje: Math.floor(Math.random() * 21) - 10,
     },
-    valorMonetario: {
+    CPU: {
+      values: [
+        {
+          date: 1695276000000,
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+        {
+          date: 1695286000000,
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+        {
+          date: 1695296000000,
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+        {
+          date: 1695306000000,
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+        {
+          date: 1695316000000,
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+      ],
+    },
+
+    diskC: {
+      values: [
+        {
+          date: "C://",
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+      ],
+    },
+
+    diskD: {
+      values: [
+        {
+          date: "D://",
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+      ],
+    },
+
+    ram: {
+      values: [
+        {
+          date: 1695276000000,
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+        {
+          date: 1695286000000,
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+        {
+          date: 1695296000000,
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+        {
+          date: 1695306000000,
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+        {
+          date: 1695316000000,
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+      ],
+    },
+
+    availibility: {
       values: [
         {
           date: 1695276000000,
@@ -399,7 +452,6 @@ export function getData() {
     webServersConValores,
     comunicaciones,
     windowsConValores,
-    windowsData,
     Availability,
     response,
     iisConValores,

@@ -20,10 +20,10 @@
             </div>
             <div>
                 <div class="col">
-                    <canvas :id="this.id + `_2`" style="width:100%;height:50%;"></canvas>
+                    <canvas :id="this.id + `_2`" style="width:350px;height:125px;"></canvas>
                 </div>
                 <div class="col">
-                    <canvas :id="this.id + `_1`" style="width:100%;height:50%;"></canvas>
+                    <canvas :id="this.id + `_1`" style="width:320px;height:125px;"></canvas>
                 </div>
             </div>
         </div>
@@ -59,8 +59,10 @@ export default {
                 palette: "custom",
             });
 
-            ChartLib.bar(this.id + `_2`, this.widgetData.responsetime, {
-                yvalues: ["value"],
+            ChartLib.line(this.id + `_2`, this.widgetData.availibility.values, {
+                xvalues: "date",
+                yvalues: ["count"],
+                yfmt: "n",
                 legend: false,
                 palette: "custom",
             });
