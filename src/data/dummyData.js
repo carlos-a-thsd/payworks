@@ -119,6 +119,8 @@ export function getData() {
     4
   );
 
+  const autorizadores = ["Autorizador A", "Autorizador B"];
+
   const cats = ["Monterrey", "Cd. de México", "Durango"].map((name) => ({
     name,
     value: Math.random() * 100000,
@@ -257,9 +259,6 @@ export function getData() {
 
   //   windows
   const Availability = Math.round(Math.random() * 100);
-  const CPU = Math.round(Math.random() * 100);
-  const Disk = Math.round(Math.random() * 100);
-  const Ram = Math.round(Math.random() * 100);
   const windows = ["Availability", "CPU", "Disk", "Ram"];
   const windowsConValores = generarValoresAleatorios(windows, 1, 4);
 
@@ -309,6 +308,7 @@ export function getData() {
     disponibilidadInfraestructuraConValores,
     nodosConValores,
     puntosContactoConValores,
+    autorizadores,
     dispInfra: {
       prom: (Math.random() * (0.8 - 1) + 1) * 100,
       sla: (Math.random() * (0.8 - 1) + 1) * 100,
@@ -421,6 +421,41 @@ export function getData() {
         },
       ],
     },
+
+    transaccional: {
+      values: [
+        {
+          date: "Pronóstico",
+          count: pronosticoTransaccional,
+        },
+        {
+          date: "Meta",
+          count: metaTransaccional,
+        },
+        {
+          date: "Promedio",
+          count: promedioTransaccional,
+        },
+      ],
+    },
+
+    monetario: {
+      values: [
+        {
+          date: "Pronóstico",
+          count: pronosticoMonetario,
+        },
+        {
+          date: "Meta",
+          count: metaMonetario,
+        },
+        {
+          date: "Promedio",
+          count: promedioMonetario,
+        },
+      ],
+    },
+
     transacciones: {
       digitales: {
         total: digitales.total,

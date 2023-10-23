@@ -1,6 +1,6 @@
 <template>
     <div class="sidebar" :style="{ width: sidebarWidth }">
-            <img src="/logo-banorte.png" alt="">
+        <img src="/logo-banorte.png" alt="">
         <div class="container-date" v-if="collapsed == false">
             <img src="../../../public/image-profile.png" alt="" style="width: 4rem; height: 4rem;" />
             <div>
@@ -80,7 +80,7 @@ export default {
 <style>
 :root {
     --sidebar-bg-color: #FFF;
-    --sidebar-item-border-right: #b1b1b1;
+    --sidebar-item-border-right: #b80000;
 }
 </style>
 <style scoped>

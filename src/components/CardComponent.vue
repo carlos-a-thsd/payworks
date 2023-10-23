@@ -1,6 +1,6 @@
 <template>
     <div class="card">
-        <div v-if="icon" class="icon-box">
+        <div v-if="icon" class="icon-box" :style="{ backgroundColor: iconColor }">
             <img :src="imageSrc" alt="Icon">
         </div>
 
@@ -14,11 +14,12 @@
 export default {
     props: [
         "title",
-        "icon"
+        "icon",
+        "iconColor"
     ],
-    computed:{
-        imageSrc(){
-            return new URL(`../assets/${this.icon}`, import.meta.url).href;
+    computed: {
+        imageSrc() {
+            return new URL(`../../public/${this.icon}`, import.meta.url).href;
         }
     }
 };
@@ -42,7 +43,13 @@ export default {
     padding-top: 5px;
     padding-bottom: 0px;
     text-align: center;
+    position: relative;
+}
 
+.titulo h6 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .icon-box {

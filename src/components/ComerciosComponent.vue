@@ -7,27 +7,34 @@
             <div class="col ms-0">
                 <ul class="custom-list">
                     <li v-for="(comercio, index) in widgetData[this.id]" :key="comercio.name">
-                        <span class="bullet" :style="{ backgroundColor: colores[index % colores.length] }"></span> {{ comercio.name +" "+formatear("p100",comercio.value) }}
+                        <div class="d-flex align-items-center justify-content-between w-100 mt-2">
+                            <span class="bullet-c" :style="{ backgroundColor: colores[index % colores.length] }"></span>
+                            <div class="d-flex align-items-center justify-content-between w-100 gap-2">
+                                <h2 class="value">{{ comercio.name }}</h2>
+                                <span class="value">{{ formatear("p100", comercio.value) }}</span>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>
         </div>
-        <hr>
+        <hr class="m-0">
         <div class="col-12 d-flex align-items-center justify-content-around">
-            <div>
-                <span class="bullet"  style="background-color: green;"></span>
-                <h3 class=" d-inline">Autorizador B</h3>
+            <div v-for="(autorizador, index) in widgetData.autorizadores" :key="index">
+                <span class="bullet-c mt-2" style="background-color: green;"></span>
+                <h3 class="d-inline mt-2">{{ autorizador }}</h3>
             </div>
         </div>
     </div>
 </template>
+  
 <script>
 import { ChartLib } from '../components/libs/ChartLib';
 import { fmt } from './libs/fmt';
 export default {
     data() {
         return {
-            colores: ["#004e97", "#46b3a9", "#fc586f", "#8b74d7", "#fdbc38", "#6e838e", "#2a9ec6", "#e10052", "#26e7a7"],
+            colores: ["#FFA07A", "#9370DB", "#4682B4", "#A0522D", "#DA70D6", "#D2691E", "#9932CC", "#87CEEB", "#E0B0FF"],
         };
     },
     props: [
@@ -36,7 +43,7 @@ export default {
     ],
     methods: {
         buildComponent() {
-            ChartLib.palettes.custom = this.colores;  
+            ChartLib.palettes.custom = this.colores;
             ChartLib.pie(this.id, this.widgetData[this.id], {
                 xvalues: "name",
                 yvalues: ["value"],
@@ -45,7 +52,7 @@ export default {
                 palette: "custom"
             });
         },
-        formatear(formato, valor){
+        formatear(formato, valor) {
             return fmt(formato)(valor)
         }
     },
@@ -65,19 +72,42 @@ export default {
 }
 </script>
 <style scoped>
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.value {
+    font-size: 12px;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 0;
+}
+
 .custom-list {
     list-style-type: none;
     padding-left: 0;
     font-size: 12px;
 }
 
-.bullet {
+.bullet-c {
     display: inline-block;
-    width: 15px; /* Ancho del bullet */
-    height: 15px; /* Alto del bullet */
-    background-color: #004e97; /* Color de fondo del bullet */
-    border-radius: 10px; /* Bordes rectos para hacerlo rectangular */
-    margin-right: 5px; /* Espacio entre los bullets y el texto */
+    width: 12px;
+    /* Ancho del bullet */
+    height: 10px;
+    /* Alto del bullet */
+    background-color: #004e97;
+    /* Color de fondo del bullet */
+    border-radius: 10px;
+    /* Bordes rectos para hacerlo rectangular */
+    margin-right: 5px;
+    /* Espacio entre los bullets y el texto */
 }
 
+h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 0;
+}
 </style>

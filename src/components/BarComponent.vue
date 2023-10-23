@@ -1,6 +1,6 @@
 <template lang="">
     <div>
-        <canvas class="d-inline" id="mundo" style="width:100%;height:50px;"></canvas>
+        <canvas class="d-inline" id="mundo" style="width:100%;height:100px;"></canvas>
     </div>
 </template>
 <script>

@@ -5,7 +5,7 @@
         </div>
         <div class="row mb-4 align-items-center">
             <div class="col">
-                <h1 class="mt-0 mb-4 d-inline">Dashboards - payworks</h1>
+                <h1 class="mt-0 mb-4 d-inline">Dashboards - Payworks</h1>
             </div>
             <div class="col-4">
                 <div class="input-group rounded">
@@ -23,24 +23,24 @@
         <BarPronostico id="bar" :widgetData="dummydata"></BarPronostico>
 
 
-        <div class="row mt-4">
+        <div class="row mt-5">
             <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
-                <CardComponent title="Salud/Disponibilidad" icon="banda.png">
+                <CardComponent title="Salud/Disponibilidad">
                     <DisponibilidadComponent id="disponibilidad" :widgetData="dummydata"></DisponibilidadComponent>
                 </CardComponent>
             </div>
             <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
-                <CardComponent title="Volumen monetario" icon="banda.png">
-                    <ResumenVolumenMonetario :widgetData="dummydata"></ResumenVolumenMonetario>
+                <CardComponent title="Volumen monetario" icon="Monetario.png" :iconColor="'#ffd000'">
+                    <ResumenVolumenMonetario :widgetData="dummydata" id="monetario"></ResumenVolumenMonetario>
                 </CardComponent>
             </div>
             <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
-                <CardComponent title="Volumen transaccional" icon="banda.png">
-                    <ResumenVolumenTransaccional :widgetData="dummydata"></ResumenVolumenTransaccional>
+                <CardComponent title="Volumen transaccional" icon="Transaccional.png">
+                    <ResumenVolumenTransaccional :widgetData="dummydata" id="transaccion"></ResumenVolumenTransaccional>
                 </CardComponent>
             </div>
             <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
-                <CardComponent title="Disponibilidad/Infraestructura" icon="banda.png">
+                <CardComponent title="Disponibilidad/Infraestructura">
                     <RouterLink to="/infraestructura" style="text-decoration: none; color: inherit;">
                         <DisponibilidadInfraestructuraComponent id="disponibilidadInfraestructura" :widgetData="dummydata">
                         </DisponibilidadInfraestructuraComponent>
@@ -49,75 +49,69 @@
             </div>
         </div>
 
-        <div class="row mt-3">
-            <div class="col-3">
-                <CardComponent title="Comercios Digitales" icon="banda.png">
+        <div class="row mt-5">
+            <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
+                <CardComponent title="Comercios Digitales" icon="Comercio.png">
                     <ComerciosComponent id="comerciosDigitalesAjustados" :widgetData="dummydata"></ComerciosComponent>
                 </CardComponent>
             </div>
-            <div class="col-3">
-                <CardComponent title="Transacciones Digitales" icon="banda.png">
+            <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
+                <CardComponent title="Transacciones Digitales" icon="Transacciones_D.png">
                     <TransaccionesComponent id="digitales" :widgetData="dummydata"></TransaccionesComponent>
                 </CardComponent>
             </div>
-            <div class="col-3">
-                <CardComponent title="Comercios Físicos" icon="banda.png">
+            <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
+                <CardComponent title="Comercios Físicos" icon="Comercio.png">
                     <ComerciosComponent id="comerciosFisicosAjustados" :widgetData="dummydata"></ComerciosComponent>
                 </CardComponent>
             </div>
-            <div class="col-3">
-                <CardComponent title="Transacciones Físicas" icon="banda.png">
+            <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
+                <CardComponent title="Transacciones Físicas" icon="Transacciones_F.png" :iconColor="'#ff0000'">
                     <TransaccionesComponent id="fisicas" :widgetData="dummydata"></TransaccionesComponent>
                 </CardComponent>
             </div>
         </div>
 
-        <div class="row mt-3">
+        <div class="row mt-5">
             <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
-                <CardComponent title="Emisores" icon="banda.png">
+                <CardComponent title="Emisores" icon="Bank.png">
                     <EmisoresComponent id="emisores" :widgetData="dummydata"></EmisoresComponent>
                 </CardComponent>
             </div>
             <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
-                <CardComponent title="Puntos de Contacto" icon="banda.png">
+                <CardComponent title="Puntos de Contacto" icon="CTM.png">
                     <PuntosContactoComponent id="puntosContacto" :widgetData="dummydata"></PuntosContactoComponent>
                 </CardComponent>
             </div>
             <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
-                <CardComponent title="ThousandEyes" icon="banda.png">
+                <CardComponent title="ThousandEyes" icon="Eye.png">
                 </CardComponent>
             </div>
             <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
-                <CardComponent title="Nodos" icon="banda.png">
+                <CardComponent title="Nodos" icon="Nodos.png">
                     <NodosComponent id="nodos" :widgetData="dummydata"></NodosComponent>
                 </CardComponent>
             </div>
         </div>
 
 
-        <div class="row mt-3">
+        <div class="row mt-5">
             <div class="col-6">
-                <CardComponent title="Modelo analítico Transaccional" icon="banda.png">
+                <CardComponent title="Modelo analítico Transaccional">
                     <ModeloTransaccionalComponent id="transaccional" :widgetData="dummydata"></ModeloTransaccionalComponent>
                 </CardComponent>
             </div>
             <div class="col-6">
-                <CardComponent title="Modelo analítico Monetario" icon="banda.png">
+                <CardComponent title="Modelo analítico Monetario">
                     <ModeloMonetarioComponent id="monetario" :widgetData="dummydata"></ModeloMonetarioComponent>
                 </CardComponent>
             </div>
         </div>
-        <!-- <div class="col-4">
-
-            <CardComponent title="Disponibilidad" icon="banda.png">
-                <test></test>
-            </CardComponent>
-        </div>             -->
     </div>
 </template>
+
 <script setup>
 import CardComponent from '../components/CardComponent.vue';
-import test from '../components/test.vue';
 import ComerciosComponent from '../components/ComerciosComponent.vue';
 import EmisoresComponent from '../components/EmisoresComponent.vue';
 import ResumenVolumenMonetario from '../components/ResumenVolumenMonetario.vue';
@@ -141,6 +135,7 @@ onMounted(() => {
     }, 3000)
 })
 </script>
+
 <style>
 .row {
     width: 100%;

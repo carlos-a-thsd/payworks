@@ -6,9 +6,13 @@
             </div>
             <div class="col ms-0">
                 <ul class="custom-list">
-                    <li v-for="(emisor, index) in widgetData.emisoresAjustados" :key="emisor.name">
-                        <span class="bullet" :style="{ backgroundColor: colores[index % colores.length] }"></span> {{
-                            emisor.name + " " + formatear("p100", emisor.value) }}
+                    <li v-for="(emisor, index) in widgetData.emisoresAjustados" :key="emisor.name"
+                        class="d-flex align-items-center justify-content-between w-100">
+                        <span class="bullet-e" :style="{ backgroundColor: colores[index % colores.length] }"></span>
+                        <div class="d-flex align-items-center justify-content-between w-100 gap-2">
+                            <h2 class="value">{{ emisor.name }}</h2>
+                            <span class="value">{{ formatear("p100", emisor.value) }}</span>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -21,7 +25,7 @@ import { fmt } from './libs/fmt';
 export default {
     data() {
         return {
-            colores: ["#004e97", "#46b3a9", "#fc586f", "#8b74d7", "#fdbc38", "#6e838e", "#2a9ec6", "#e10052", "#26e7a7"],
+            colores: ["#FFA07A", "#9370DB", "#4682B4", "#A0522D", "#DA70D6", "#D2691E", "#9932CC", "#87CEEB", "#E0B0FF"],
         };
     },
     props: [
@@ -65,12 +69,28 @@ export default {
     font-size: 12px;
 }
 
-.bullet {
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.value {
+    font-size: 12px;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+
+.bullet-e {
     display: inline-block;
-    width: 15px;
-    height: 15px;
+    width: 11px;
+    height: 10px;
     background-color: #004e97;
-    border-radius: 10px;
+    border-radius: 2000px;
     margin-right: 5px;
+    margin-bottom: -5px;
 }
 </style>

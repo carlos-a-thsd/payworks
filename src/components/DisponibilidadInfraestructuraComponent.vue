@@ -1,34 +1,32 @@
 <template>
-    <div>
-        <div class="row">
-            <div class="col-5 me-0 pt-4">
-                <div class="ms-3" :id="`${this.id}`" style="width:100%;height:auto;"></div>
-                <div class="col d-flex pt-2">
-                    <div class="col text-center mb-2">
-                        <h6 class="mb-0 ms-1">{{ formatear("p100", this.widgetData.dispInfra.prom)}}</h6>
-                        <p style="font-size: 14px;" class="d-inline">Promedio</p>
-                    </div>
-                    <div class="col text-center mb-2">
-                        <h6 class="mb-0 ms-1">{{ formatear("p100", this.widgetData.dispInfra.sla)}}</h6>
-                        <p style="font-size: 14px;" class="d-inline">SLA</p>
-                    </div>
+    <div class="row">
+        <div class="col-5 me-0 pt-4 mb-5">
+            <div class="ms-3" :id="`${this.id}`" style="width:100%;height:auto;"></div>
+            <div class="col d-flex pt-2">
+                <div class="col text-center mb-2">
+                    <h6 class="mb-0 ms-1">{{ formatear("p100", this.widgetData.dispInfra.prom) }}</h6>
+                    <p style="font-size: 14px;" class="d-inline">Promedio</p>
+                </div>
+                <div class="col text-center mb-2">
+                    <h6 class="mb-0 ms-1">{{ formatear("p100", this.widgetData.dispInfra.sla) }}</h6>
+                    <p style="font-size: 14px;" class="d-inline">SLA</p>
                 </div>
             </div>
-            <div class="col-7 ms-0">
-                <ul class="custom-list">
-                    <li v-for="elemento in widgetData.disponibilidadInfraestructuraConValores" :key="elemento.name">
-                        <span class="bullet"
-                            :class="{ 'red': elemento.value === 1, 'green': elemento.value === 2, 'yellow': elemento.value === 3 }"></span>
-                        {{ elemento.name }}
-                    </li>
-                </ul>
-            </div>
+        </div>
+        <div class="col-7 ms-0">
+            <ul class="custom-list">
+                <li v-for="elemento in widgetData.disponibilidadInfraestructuraConValores" :key="elemento.name"
+                    class="d-flex align-items-center">
+                    <span class="bullet"
+                        :class="{ 'red': elemento.value === 1, 'green': elemento.value === 2, 'yellow': elemento.value === 3 }"></span>
+                    <h2 class="name"> {{ elemento.name }}</h2>
+                </li>
+            </ul>
         </div>
     </div>
 </template>
 <script>
 import { progress } from './libs/progressChart';
-// import { ChartLib } from '../components/libs/ChartLib';
 import { fmt } from './libs/fmt';
 export default {
     props: [
@@ -77,6 +75,24 @@ export default {
 }
 </script>
 <style>
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: normal;
+}
+
+.name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 0;
+    margin-top: .5rem;
+}
+
+.bullet {
+    margin-top: .7rem;
+}
+
 .custom-list {
     list-style-type: none;
     padding-left: 0;
@@ -105,5 +121,6 @@ export default {
 }
 
 .yellow {
-    background-color: yellow;
-}</style>
+    background-color: #ffd000;
+}
+</style>

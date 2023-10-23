@@ -1,11 +1,11 @@
 <template>
     <div class="row d-flex">
-        <div class="col-2">
+        <div class="col-2 text-center">
             <h2 class="mb-0 ms-1">{{ formatear("ch6", this.widgetData.resumenBar.actividad) }}</h2>
             <p class="d-inline">Actividad</p>
         </div>
         <div class="col-8 text-center">
-            <canvas class="d-inline" id="mundo" style="width:100%;height:50px;"></canvas>
+            <canvas class="d-inline" id="mundo" style="width:100%;height:80px;"></canvas>
         </div>
         <div class="col-2 text-center ">
             <h2 class="mb-0 ms-1">{{ formatear("ch6", this.widgetData.resumenBar.pronostico) }}</h2>
@@ -33,7 +33,7 @@ export default {
                 { name: "total", count: [total] }
             ];
             stackedHbar("mundo", resume, "ch6", [
-                "#235D8C",
+                "#049631",
                 "#CCCCCC",
             ], maxim);
             // smallLine("mundo", "#676544");

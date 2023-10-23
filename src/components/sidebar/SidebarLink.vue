@@ -56,7 +56,7 @@ export default {
 }
 
 .link.active {
-    border-right: 2px solid var(--sidebar-item-border-right);
+    border-right: 5px solid var(--sidebar-item-border-right);
 }
 
 .link .icon {
