@@ -37,7 +37,7 @@ import { ChartLib } from '../components/libs/ChartLib';
 export default {
     data() {
         return {
-            colores: ["#FFA07A", "#9370DB", "#4682B4", "#A0522D", "#DA70D6", "#D2691E", "#9932CC", "#87CEEB", "#E0B0FF"]
+            colores: ["#ff0054", "#8900f2", "#006ba6", "#2e294e", "#582f0e", "#D2691E", "#247ba0", "#87CEEB", "#E0B0FF"]
         };
     },
     props: [

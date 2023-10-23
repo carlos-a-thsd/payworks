@@ -119,8 +119,6 @@ export function getData() {
     4
   );
 
-  const autorizadores = ["Autorizador A", "Autorizador B"];
-
   const cats = ["Monterrey", "Cd. de México", "Durango"].map((name) => ({
     name,
     value: Math.random() * 100000,
@@ -308,7 +306,6 @@ export function getData() {
     disponibilidadInfraestructuraConValores,
     nodosConValores,
     puntosContactoConValores,
-    autorizadores,
     dispInfra: {
       prom: (Math.random() * (0.8 - 1) + 1) * 100,
       sla: (Math.random() * (0.8 - 1) + 1) * 100,

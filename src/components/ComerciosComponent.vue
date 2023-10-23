@@ -19,11 +19,11 @@
             </div>
         </div>
         <hr class="m-0">
-        <div class="col-12 d-flex align-items-center justify-content-around">
-            <div v-for="(autorizador, index) in widgetData.autorizadores" :key="index">
-                <span class="bullet-c mt-2" style="background-color: green;"></span>
-                <h3 class="d-inline mt-2">{{ autorizador }}</h3>
-            </div>
+        <div class="col-12 d-flex align-items-center justify-content-center">
+            <span class="bullet-c mt-2" style="background-color: green;"></span>
+            <h3 class="d-inline mt-2">
+                {{ this.id == "comerciosFisicosAjustados" ? "Autorizador B" : "Autorizador A" }}
+            </h3>
         </div>
     </div>
 </template>
@@ -34,7 +34,8 @@ import { fmt } from './libs/fmt';
 export default {
     data() {
         return {
-            colores: ["#FFA07A", "#9370DB", "#4682B4", "#A0522D", "#DA70D6", "#D2691E", "#9932CC", "#87CEEB", "#E0B0FF"],
+            colores: ["#ff0054", "#8900f2", "#006ba6", "#2e294e", "#582f0e", "#D2691E", "#247ba0", "#87CEEB", "#E0B0FF"],
+            autorizador: "A"
         };
     },
     props: [
