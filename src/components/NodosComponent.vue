@@ -1,23 +1,21 @@
 <template>
-<div>
+    <div>
         <div class="col-12 ms-0">
             <ul class="custom-list">
                 <li v-for="elemento in widgetData.nodosConValores" :key="elemento.name">
-                    <div class="d-flex ms-4 me-4 justify-content-between align-items-center">
-                        <span class="bullet"
-                        :class="{
+                    <div class="d-flex ms-4 me-4 justify-content-between align-items-center mb">
+                        <span class="bullet" :class="{
                             'green': elemento.value !== 1 && elemento.value !== 3,
                             'red': elemento.value === 1,
                             'yellow': elemento.value === 3
                         }"></span>
                         <span class="ms-2">{{ elemento.name }}</span>
-                        <span class="ms-auto">{{ elemento.value }}</span>
+                        <span class="ms-auto name">{{ elemento.value }}</span>
                     </div>
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
-
 </template>
 <script>
 export default {
@@ -29,7 +27,7 @@ export default {
         buildComponent() {
 
         },
-        formatear(formato, valor){
+        formatear(formato, valor) {
             return fmt(formato)(valor)
         }
     },
@@ -48,4 +46,14 @@ export default {
     }
 }
 </script>
-<style></style>
+<style scoped>
+.name {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+}
+
+.mb {
+    margin-bottom: .1rem;
+}
+</style>

@@ -193,6 +193,25 @@ export function getData() {
   ];
   const tlalpanContactoConValores = generarValoresAleatorios(tlalpan, 1, 4);
 
+  const puntosAcceso = ["via.pagosbanorte.com", "CCA", "Tlalpan"];
+  const resultados = {};
+
+  puntosAcceso.forEach((punto) => {
+    const ms = (Math.random() * 100).toFixed(2) + "ms";
+    const porcentaje = `(${(Math.random() * 100).toFixed(2)}%)`;
+    const llamadas = (Math.random() * 1000).toFixed(2) + "m calls";
+    const errores = (Math.random() * 10000).toFixed(2) + " Errors";
+
+    resultados[punto] = {
+      ms,
+      porcentaje,
+      llamadas,
+      errores,
+    };
+  });
+
+  // console.log(resultados);
+
   const totalMonetario = aleatorioResumenMonetario();
   const pronosticoMonetario = totalMonetario + 9908000000;
   const promedioMonetario = totalMonetario + 43534;
@@ -367,6 +386,7 @@ export function getData() {
     nodosConValores,
     puntosContactoConValores,
     categoriasFisica,
+    resultados,
     dispInfra: {
       prom: (Math.random() * (0.8 - 1) + 1) * 100,
       sla: (Math.random() * (0.8 - 1) + 1) * 100,
@@ -475,6 +495,74 @@ export function getData() {
         },
         {
           date: 1695316000000,
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+      ],
+    },
+
+    // ThousendEyes
+    thousendEyeCCA: {
+      values: [
+        {
+          date: "Avalibility",
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+        {
+          date: "Total Time mean",
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+        {
+          date: "Latency mean",
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+        {
+          date: "Packet max",
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+        {
+          date: "Packet mean",
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+      ],
+    },
+
+    thousendEyeVia: {
+      values: [
+        {
+          date: "Avalibility",
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+        {
+          date: "Total Time mean",
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+        {
+          date: "DNS mean",
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+      ],
+    },
+
+    thousendEyeTlalpan: {
+      values: [
+        {
+          date: "Avalibility",
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+        {
+          date: "Total Time mean",
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+        {
+          date: "Latencu mean",
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+        {
+          date: "Packet loss mean",
+          count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
+        },
+        {
+          date: "Packet loss max ",
           count: Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000,
         },
       ],

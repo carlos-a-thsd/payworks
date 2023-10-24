@@ -72,22 +72,18 @@
             </div>
         </div>
 
-        <div class="row mt-5">
+        <div class="row-3-file mt-5">
             <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
                 <CardComponent title="Emisores" icon="Bank.png">
                     <EmisoresComponent id="emisores" :widgetData="dummydata"></EmisoresComponent>
                 </CardComponent>
             </div>
             <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
-                <CardComponent title="Puntos de Contacto" icon="CTM.png">
+                <CardComponent title="Puntos de Acceso" icon="CTM.png">
                     <PuntosContactoComponent id="puntosContacto" :widgetData="dummydata"></PuntosContactoComponent>
                 </CardComponent>
             </div>
-            <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
-                <CardComponent title="ThousandEyes" icon="Eye.png">
-                    <TeComponent id="te" :widgetData="dummydata"></TeComponent>
-                </CardComponent>
-            </div>
+
             <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
                 <CardComponent title="Nodos" icon="Nodos.png">
                     <NodosComponent id="nodos" :widgetData="dummydata"></NodosComponent>
@@ -98,16 +94,20 @@
 
         <div class="row mt-5">
             <div class="col-6">
-                <CardComponent title="Modelo analítico Transaccional">
-                    <ModeloTransaccionalComponent id="transaccional" :widgetData="dummydata"></ModeloTransaccionalComponent>
-                </CardComponent>
-            </div>
-            <div class="col-6">
                 <CardComponent title="Modelo analítico Monetario">
                     <ModeloMonetarioComponent id="monetario" :widgetData="dummydata"></ModeloMonetarioComponent>
                 </CardComponent>
             </div>
+            <div class="col-6">
+                <CardComponent title="Modelo analítico Transaccional">
+                    <ModeloTransaccionalComponent id="transaccional" :widgetData="dummydata"></ModeloTransaccionalComponent>
+                </CardComponent>
+            </div>
         </div>
+        <div class="mt-5 mb-5">
+            <TeComponent id="te" :widgetData="dummydata"></TeComponent>
+        </div>
+
     </div>
 </template>
 
@@ -141,5 +141,13 @@ onMounted(() => {
 <style>
 .row {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.row-3-file {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
 }
 </style>

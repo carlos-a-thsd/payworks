@@ -50,12 +50,12 @@ export default {
 .titulo {
     padding-top: 5px;
     padding-bottom: 0px;
-    text-align: center;
+    text-align: end;
     position: relative;
 }
 
 .titulo h6 {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     margin-bottom: 20px;
 }
