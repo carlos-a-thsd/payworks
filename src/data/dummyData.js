@@ -174,6 +174,25 @@ export function getData() {
     4
   );
 
+  const cca = [
+    "Avalibility",
+    "Total Time mean",
+    "Latency mean",
+    "Packet max",
+    "Packet mean",
+  ];
+  const ccaContactoConValores = generarValoresAleatorios(cca, 1, 4);
+  const viaPagos = ["Avalibility", "Total Time mean", "DNS mean"];
+  const viaPagosContactoConValores = generarValoresAleatorios(viaPagos, 1, 4);
+  const tlalpan = [
+    "Avalibility",
+    "Total Time mean",
+    "Latency mean",
+    "Packet loss mean",
+    "Packet loss max ",
+  ];
+  const tlalpanContactoConValores = generarValoresAleatorios(tlalpan, 1, 4);
+
   const totalMonetario = aleatorioResumenMonetario();
   const pronosticoMonetario = totalMonetario + 9908000000;
   const promedioMonetario = totalMonetario + 43534;
@@ -186,6 +205,47 @@ export function getData() {
 
   const digitales = transaccionesNumeros();
   const fisicas = transaccionesNumeros();
+
+  const categoriasDigital = [
+    "Electrónica",
+    "Artículos para el Hogar y autos",
+    "Farmacia",
+    "Bebidas y licores",
+    "Ropa y Zapatería",
+    "Bebés",
+    "Carnes, Pescados y Mariscos",
+    "Cuidado de la ropa",
+    "Lácteos",
+    "Congelados",
+  ];
+  const categoriasDigitalConValores = generarValoresAleatorios(
+    categoriasDigital,
+    0,
+    100
+  );
+  const categoriasDigitalAjustados = distribuirValores(
+    categoriasDigitalConValores
+  );
+  const categoriasFisica = [
+    "Televisores",
+    "Computación",
+    "Telefonía",
+    "Línea Blanca",
+    "Colchones y blancos",
+    "Decoración y Muebles",
+    "Audio",
+    "Vitaminas y Suplementos",
+    "Medicamentos de Alta Especialidad",
+    "Cervezas",
+  ];
+  const categoriasFisicaConValores = generarValoresAleatorios(
+    categoriasDigital,
+    0,
+    100
+  );
+  const categoriasFisicaAjustados = distribuirValores(
+    categoriasFisicaConValores
+  );
 
   // Infraestructura
 
@@ -306,6 +366,7 @@ export function getData() {
     disponibilidadInfraestructuraConValores,
     nodosConValores,
     puntosContactoConValores,
+    categoriasFisica,
     dispInfra: {
       prom: (Math.random() * (0.8 - 1) + 1) * 100,
       sla: (Math.random() * (0.8 - 1) + 1) * 100,
@@ -474,6 +535,16 @@ export function getData() {
     resumenBar: {
       actividad: totalMonetario,
       pronostico: pronosticoMonetario,
+    },
+
+    te: {
+      cca: ccaContactoConValores,
+      viaPagos: viaPagosContactoConValores,
+      tlalpan: tlalpanContactoConValores,
+    },
+    topCategorias: {
+      digitales: categoriasDigitalAjustados,
+      fisicas: categoriasFisicaAjustados,
     },
 
     // Infraestructura

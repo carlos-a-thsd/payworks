@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import DashboarView from "../views/DashboardView.vue";
 import Infraestructura from "../views/Infraestructura.vue";
+import ComerciosView from "../views/ComerciosView.vue";
 
 const routes = [
   {
@@ -13,6 +14,11 @@ const routes = [
     path: "/infraestructura",
     name: "infraestructura",
     component: Infraestructura,
+  },
+  {
+    path: "/comercios/:tipo",
+    name: "comercios",
+    component: ComerciosView,
   },
 ];
 

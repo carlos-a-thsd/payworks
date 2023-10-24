@@ -61,7 +61,7 @@
                 </CardComponent>
             </div>
             <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
-                <CardComponent title="Comercios Físicos" icon="Comercio.png">
+                <CardComponent title="Comercios Físicos" icon="Comercio.png" type="fisicos" ruta="comercios">
                     <ComerciosComponent id="comerciosFisicosAjustados" :widgetData="dummydata"></ComerciosComponent>
                 </CardComponent>
             </div>
@@ -85,6 +85,7 @@
             </div>
             <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
                 <CardComponent title="ThousandEyes" icon="Eye.png">
+                    <TeComponent id="te" :widgetData="dummydata"></TeComponent>
                 </CardComponent>
             </div>
             <div class="col-md-6 col-sm-6 col-xl-4 col-xxl-3">
@@ -122,6 +123,7 @@ import TransaccionesComponent from '../components/TransaccionesComponent.vue';
 import NodosComponent from '../components/NodosComponent.vue';
 import PuntosContactoComponent from '../components/PuntosContactoComponent.vue';
 import BarPronostico from '../components/BarPronostico.vue';
+import TeComponent from '../components/TeComponent.vue';
 
 import ModeloTransaccionalComponent from '../components/ModeloTransaccionalComponent.vue';
 import ModeloMonetarioComponent from '../components/ModeloMonetarioComponent.vue'
